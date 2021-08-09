@@ -192,7 +192,9 @@ const styles = StyleSheet.create({
         // top: screen.height - (design_height * 2),
         backgroundColor: colors.blue,
         borderTopLeftRadius: design_curve,
-        bottom: design_height
+      bottom: design_height,
+      
+        
     },
     middleTop: {
         width: '100%',
