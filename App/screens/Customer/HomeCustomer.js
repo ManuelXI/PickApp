@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { StatusBar } from "expo-status-bar";
+import Constants from "expo-constants";
 import {
   StyleSheet,
   Text,
@@ -14,10 +15,18 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { Icon, InlineIcon } from "@iconify/react";
 import arrowDown from "@iconify/icons-bi/arrow-down";
 
+const screen = Dimensions.get("window");
+
 let design_height = 120;
 let design_curve = 70;
+let box_width = screen.width / 2 - 30;
+// let separator_top = StatusBar.currentHeight + 200;
 
 const data = [
+  {
+    name: "My Bins",
+    icon: require("../../assets/images/MyBinsIcon.png"),
+  },
   {
     name: "Recyclables",
     icon: require("../../assets/images/RecyclableIcon.png"),
@@ -25,6 +34,14 @@ const data = [
   {
     name: "Solid Waste",
     icon: require("../../assets/images/SolidWasteIcon.png"),
+  },
+  {
+    name: "Liquid Waste",
+    icon: require("../../assets/images/LiquidWasteIcon.png"),
+  },
+  {
+    name: "Hazards",
+    icon: require("../../assets/images/HazardWasteIcon.png"),
   },
 ];
 import {
@@ -50,8 +67,7 @@ import {
 import { useFonts } from "@expo-google-fonts/montserrat";
 import AppLoading from "expo-app-loading";
 import { ScrollView } from "react-native-gesture-handler";
-
-const screen = Dimensions.get("window");
+import { Colors } from "react-native/Libraries/NewAppScreen";
 
 export default ({ navigation }) => {
   const [cat, setCat] = useState(1);
@@ -114,10 +130,11 @@ export default ({ navigation }) => {
               </TouchableOpacity>
               <Text
                 style={{
-                  color: colors.grey,
+                  color: status === item.name ? colors.black : colors.grey,
                   fontFamily: "Montserrat_400Regular",
                   fontSize: status === item.name ? 15 : 12,
                   textAlign: "center",
+                  marginTop: -3,
                 }}
               >
                 {" "}
@@ -128,15 +145,16 @@ export default ({ navigation }) => {
         ))}
       </ScrollView>
 
-      {/* <View style={{
-              flexDirection: 'row',
-              position: 'absolute',
-              justifyContent: 'space-between',
-          }} >
-            <View style={styles.separator1} />
-            <View style={styles.separator2} />
-
-          </View> */}
+      <View
+        style={{
+          flexDirection: "row",
+          position: "absolute",
+          justifyContent: "space-between",
+        }}
+      >
+        <View style={styles.separator1} />
+        <View style={styles.separator2} />
+      </View>
 
       <View style={styles.bottomDesign}>
         <Image
@@ -188,7 +206,7 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     // position: 'absolute',
-    marginTop: 60,
+    marginTop: Constants.statusBarHeight + 10,
     flexDirection: "row",
     alignItems: "center",
     paddingLeft: 15,
@@ -268,30 +286,22 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: design_curve,
     bottom: design_height * 2,
   },
-  //   categoryText: {
-  //     color: colors.grey,
-  //     fontFamily: "Montserrat_400Regular",
-  //     fontSize: 15,
-  //     textAlign: "center",
-  //   },
-  //   categoryIcon: {
-  //     height: 75,
-  //     width: 95,
-  //   },
   separator1: {
-    backgroundColor: "#D1D0D0",
+    backgroundColor: colors.grey,
     height: StyleSheet.hairlineWidth,
     // height: 20,
     marginLeft: 20,
-    top: 300,
-    width: 153,
+    marginRight: 10,
+    top: 220,
+    width: box_width,
   },
   separator2: {
-    backgroundColor: "#D1D0D0",
+    backgroundColor: colors.grey,
     height: StyleSheet.hairlineWidth,
     marginRight: 20,
-    top: 300,
+    marginLeft: 10,
+    top: 220,
     // top: screen.height / 2,
-    width: 153,
+    width: box_width,
   },
 });

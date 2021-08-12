@@ -13,6 +13,7 @@ import colors from "../../../constants/colors";
 import { Card } from "react-native-shadow-cards";
 import { Icon, InlineIcon } from "@iconify/react";
 import arrowDown from "@iconify/icons-bi/arrow-down";
+import Constants from "expo-constants";
 
 const screen = Dimensions.get("window");
 
@@ -23,13 +24,61 @@ let box_height2 = 200;
 let box_width = screen.width / 2 - 30;
 
 import { ScrollView } from "react-native-gesture-handler";
+import {
+  Montserrat_100Thin,
+  Montserrat_100Thin_Italic,
+  Montserrat_200ExtraLight,
+  Montserrat_200ExtraLight_Italic,
+  Montserrat_300Light,
+  Montserrat_300Light_Italic,
+  Montserrat_400Regular,
+  Montserrat_400Regular_Italic,
+  Montserrat_500Medium,
+  Montserrat_500Medium_Italic,
+  Montserrat_600SemiBold,
+  Montserrat_600SemiBold_Italic,
+  Montserrat_700Bold,
+  Montserrat_700Bold_Italic,
+  Montserrat_800ExtraBold,
+  Montserrat_800ExtraBold_Italic,
+  Montserrat_900Black,
+  Montserrat_900Black_Italic,
+} from "@expo-google-fonts/montserrat";
+import { useFonts } from "@expo-google-fonts/montserrat";
+import AppLoading from "expo-app-loading";
 
 export default ({ navigation }) => {
+  // export const RecyclableList = ({ navigation }) => {
+  let [fontsLoaded, error] = useFonts({
+    Montserrat_100Thin,
+    Montserrat_100Thin_Italic,
+    Montserrat_200ExtraLight,
+    Montserrat_200ExtraLight_Italic,
+    Montserrat_300Light,
+    Montserrat_300Light_Italic,
+    Montserrat_400Regular,
+    Montserrat_400Regular_Italic,
+    Montserrat_500Medium,
+    Montserrat_500Medium_Italic,
+    Montserrat_600SemiBold,
+    Montserrat_600SemiBold_Italic,
+    Montserrat_700Bold,
+    Montserrat_700Bold_Italic,
+    Montserrat_800ExtraBold,
+    Montserrat_800ExtraBold_Italic,
+    Montserrat_900Black,
+    Montserrat_900Black_Italic,
+  });
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
+
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
 
-      <ScrollView style={{ top: 60 }}>
+      <ScrollView style={{ top: Constants.statusBarHeight + 10 }}>
         <View
           style={{
             flexDirection: "row",
@@ -289,5 +338,6 @@ const styles = StyleSheet.create({
     // fontWeight: "bold",
     fontSize: 18,
     textAlign: "right",
+    // backgroundColor: "#696969",
   },
 });

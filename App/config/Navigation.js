@@ -12,6 +12,8 @@ import HomeCustomer from "../screens/Customer/HomeCustomer";
 import DesignStuff from "../screens/Customer/DesignStuff";
 import Recyclable from "../screens/Customer/TopNav Screens/Recyclable";
 import SolidWaste from "../screens/Customer/TopNav Screens/SolidWaste";
+import PaperScreen from "../screens/Customer/PaperScreen";
+import SelectQuantity from "../screens/Customer/SelectQuantity";
 
 const MainStack = createStackNavigator();
 // const Drawer = createDrawerNavigator();
@@ -21,8 +23,10 @@ const MainStackScreen = () => (
     headerMode="none"
     // initialRouteName="HomeCustomer"
     // initialRouteName="DesignStuff"
-    initialRouteName="Recyclable"
+    // initialRouteName="Recyclable"
     // initialRouteName="SolidWaste"
+    // initialRouteName="PaperScreen"
+    initialRouteName="SelectQuantity"
   >
     <MainStack.Screen
       name="Aftersplash"
@@ -37,6 +41,8 @@ const MainStackScreen = () => (
     <MainStack.Screen name="DesignStuff" component={DesignStuff} />
     <MainStack.Screen name="Recyclable" component={Recyclable} />
     <MainStack.Screen name="SolidWaste" component={SolidWaste} />
+    <MainStack.Screen name="PaperScreen" component={PaperScreen} />
+    <MainStack.Screen name="SelectQuantity" component={SelectQuantity} />
   </MainStack.Navigator>
 );
 
