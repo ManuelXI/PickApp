@@ -1,3 +1,4 @@
+import { Fragment, useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import {
@@ -13,6 +14,19 @@ import { useFonts } from "@expo-google-fonts/montserrat";
 import AppLoading from "expo-app-loading";
 const screen = Dimensions.get("window");
 import Constants from "expo-constants";
+import ModalDropdown from "react-native-modal-dropdown";
+
+const data = [
+  {
+    name: "Less than a Bin",
+  },
+  {
+    name: "1 Bin < ... < 3 Bins",
+  },
+  {
+    name: "More than 3 Bins",
+  },
+];
 
 import {
   Montserrat_100Thin,
@@ -36,6 +50,8 @@ import {
 } from "@expo-google-fonts/montserrat";
 
 export default function App({ navigation }) {
+  const [status, setStatus] = useState("Less than a Bin");
+
   let [fontsLoaded, error] = useFonts({
     Montserrat_100Thin,
     Montserrat_100Thin_Italic,
@@ -79,6 +95,7 @@ export default function App({ navigation }) {
         >
           Paper
         </Text>
+
         <Text
           style={{
             marginLeft: 20,
@@ -92,17 +109,43 @@ export default function App({ navigation }) {
         </Text>
         <View style={styles.separator}></View>
 
-        <TouchableOpacity style={styles.optionsButtons}>
-          <Text
-            style={{
-              fontFamily: "Montserrat_400Regular",
-              fontSize: 15,
-            }}
-          >
-            {" "}
-            Less than a Bin{" "}
-          </Text>
-        </TouchableOpacity>
+        {/*  */}
+        {data?.map((item, itemIdx) => (
+          <Fragment key={itemIdx}>
+            <View style={{ flexDirection: "column" }}>
+              <TouchableOpacity
+                onPress={() => setStatus(item.name)}
+                style={{
+                  width: 210,
+                  height: 30,
+                  backgroundColor:
+                    status === item.name ? colors.blue : colors.white,
+                  marginTop: 15,
+                  borderWidth: 1,
+                  borderRadius: 18,
+                  borderColor:
+                    status === item.name ? colors.white : colors.black,
+                  alignSelf: "center",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  elevation: status === item.name ? 5 : 0,
+                }}
+              >
+                <Text
+                  style={{
+                    fontFamily: "Montserrat_400Regular",
+                    fontSize: 15,
+                    color: status === item.name ? colors.white : colors.black,
+                    fontFamily: "Montserrat_400Regular",
+                  }}
+                >
+                  {" "}
+                  {item.name}{" "}
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </Fragment>
+        ))}
 
         <Text
           style={{
@@ -148,19 +191,19 @@ const styles = StyleSheet.create({
   imageContainer: {
     top: 0,
     width: "110%",
-    height: "66%",
+    height: "69%",
   },
   overlay: {
     ...StyleSheet.absoluteFillObject,
     backgroundColor: colors.blue,
     opacity: 0.8,
-    height: "65%",
+    height: "69%",
   },
   bottomContainer: {
     position: "absolute",
-    height: "50%",
+    height: 300,
     // bottom: 0,
-    top: "55%",
+    top: screen.height - 300,
     width: "100%",
     backgroundColor: colors.white,
     // backgroundColor: "red",
@@ -181,7 +224,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 12,
     // marginBottom: 20,
     alignSelf: "center",
-    top: 45,
+    top: 15,
     elevation: 10,
   },
   buttonText: {
@@ -218,11 +261,5 @@ const styles = StyleSheet.create({
     marginRight: 20,
     marginTop: 20,
     width: screen.width - 40,
-  },
-  optionsButtons: {
-    width: 210,
-    height: 30,
-    backgroundColor: colors.gray,
-    marginTop: 15,
   },
 });

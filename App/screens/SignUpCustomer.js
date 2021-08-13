@@ -100,7 +100,7 @@ export default ({ navigation }) => {
             <TextInput
               style={styles.input}
               underlineColorAndroid="transparent"
-              //   onChangeText={email => setEmail(email)}
+              // onChangeText={email => setEmail(email)}
             />
           </View>
         </View>

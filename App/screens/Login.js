@@ -64,7 +64,8 @@ export default ({ navigation }) => {
     return <AppLoading />;
   }
 
-  // const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   return (
     <View style={styles.container}>
@@ -90,7 +91,7 @@ export default ({ navigation }) => {
             <TextInput
               style={styles.input}
               underlineColorAndroid="transparent"
-              //   onChangeText={email => setEmail(email)}
+              onChangeText={(email) => setEmail(email)}
             />
           </View>
         </View>
@@ -101,7 +102,7 @@ export default ({ navigation }) => {
             <TextInput
               style={styles.input}
               underlineColorAndroid="transparent"
-              //   onChangeText={email => setEmail(email)}
+              onChangeText={(password) => setPassword(password)}
               secureTextEntry={true}
             />
           </View>
