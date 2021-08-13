@@ -12,6 +12,7 @@ import {
 } from "react-native";
 import colors from "../constants/colors";
 import { Card } from "react-native-shadow-cards";
+import * as firebase from "firebase";
 
 import {
   Montserrat_100Thin,
@@ -67,6 +68,15 @@ export default ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  handleSignUp = () => {
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(this.state.email, this.state.password)
+      .then(() => this.props.navigation.navigate("HomeCustomer"))
+      .catch((error) => this.setState({ errorMessage: error.message }));
+    console.log(this.state.email);
+    // console.log(this.state.)
+  };
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
@@ -110,7 +120,8 @@ export default ({ navigation }) => {
 
         <TouchableOpacity
           style={styles.login}
-          onPress={() => navigation.push("HomeCustomer")}
+          // onPress={() => navigation.push("HomeCustomer")}
+          // onPress={this.handleSignUp}
         >
           <Text style={styles.loginText}> Login </Text>
         </TouchableOpacity>

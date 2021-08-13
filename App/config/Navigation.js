@@ -16,6 +16,8 @@ import PaperScreen from "../screens/Customer/PaperScreen";
 import SelectQuantity from "../screens/Customer/SelectQuantity";
 import SearchScreen from "../screens/Customer/SearchScreen";
 import AcceptPickup from "../screens/Customer/AcceptPickup";
+import SelectTimeSlot from "../screens/Customer/Scheduling/SelectTimeSlot";
+import ConfirmBooking from "../screens/Customer/Scheduling/ConfirmBooking";
 
 const MainStack = createStackNavigator();
 // const Drawer = createDrawerNavigator();
@@ -28,8 +30,10 @@ const MainStackScreen = () => (
     // initialRouteName="Recyclable"
     // initialRouteName="SolidWaste"
     // initialRouteName="PaperScreen"
+    initialRouteName="ConfirmBooking"
+    // initialRouteName="SelectTimeSlot"
     // initialRouteName="AcceptPickup"
-    initialRouteName="Login"
+    // initialRouteName="Login"
   >
     <MainStack.Screen
       name="Aftersplash"
@@ -48,6 +52,8 @@ const MainStackScreen = () => (
     <MainStack.Screen name="SelectQuantity" component={SelectQuantity} />
     <MainStack.Screen name="SearchScreen" component={SearchScreen} />
     <MainStack.Screen name="AcceptPickup" component={AcceptPickup} />
+    <MainStack.Screen name="SelectTimeSlot" component={SelectTimeSlot} />
+    <MainStack.Screen name="ConfirmBooking" component={ConfirmBooking} />
   </MainStack.Navigator>
 );
 

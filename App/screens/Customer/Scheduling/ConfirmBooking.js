@@ -11,9 +11,9 @@ import {
 const screen = Dimensions.get("window");
 import Constants from "expo-constants";
 import { Card } from "react-native-shadow-cards";
-import colors from "../../constants/colors";
 import { useFonts } from "@expo-google-fonts/montserrat";
 import AppLoading from "expo-app-loading";
+import colors from "../../../constants/colors";
 
 import {
   Montserrat_400Regular,
@@ -78,13 +78,13 @@ export default function App({ navigation }) {
               <View style={{ flexDirection: "row", marginRight: 15 }}>
                 <Text
                   style={{
-                    fontSize: 18,
+                    fontSize: 15,
                     fontFamily: "Montserrat_400Regular",
                     color: colors.blue,
                     top: 14,
                   }}
                 >
-                  $
+                  GH₵
                 </Text>
                 <Text
                   style={{
@@ -110,26 +110,14 @@ export default function App({ navigation }) {
           <TouchableOpacity style={styles.cashOptions}>
             <Text style={styles.blackText}> Cash </Text>
             <Image
-              source={require("../../assets/images/CashArrow.png")}
-              style={{ height: 27, width: 27 }}
-            ></Image>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.xButton}>
-            <Image
-              source={require("../../assets/images/xIcon.png")}
+              source={require("../../../assets/images/CashArrow.png")}
               style={{ height: 27, width: 27 }}
             ></Image>
           </TouchableOpacity>
         </View>
 
         <TouchableOpacity style={styles.opButton}>
-          <Text style={styles.whiteText}> Order Pickup </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.spButton}
-          onPress={() => navigation.push("SelectTimeSlot")}
-        >
-          <Text style={styles.spText}> Schedule Pickup </Text>
+          <Text style={styles.whiteText}> Confirm Booking </Text>
         </TouchableOpacity>
       </Card>
 
@@ -145,7 +133,7 @@ export default function App({ navigation }) {
         onPress={() => navigation.goBack()}
       >
         <Image
-          source={require("../../assets/images/back_arrow.png")}
+          source={require("../../../assets/images/back_arrow.png")}
           style={{ tintColor: colors.black }}
         ></Image>
       </TouchableOpacity>
@@ -165,7 +153,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     marginLeft: 10,
     marginRight: 10,
-    height: 300,
+    height: 250,
     backgroundColor: colors.white,
     width: screen.width - 20,
     alignSelf: "center",
@@ -186,7 +174,7 @@ const styles = StyleSheet.create({
   },
   cashOptions: {
     flexDirection: "row",
-    width: 220,
+    width: 300,
     height: 50,
     backgroundColor: colors.white,
     borderWidth: 3,
@@ -199,25 +187,13 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingLeft: 15,
     paddingRight: 15,
-    marginRight: 30,
+    // marginRight: 30,
+    alignSelf: "center",
   },
   blackText: {
     fontSize: 15,
     fontFamily: "Montserrat_400Regular",
     color: colors.black,
-  },
-  xButton: {
-    width: 55,
-    height: 50,
-    backgroundColor: colors.blue,
-    borderWidth: 3,
-    borderColor: colors.white,
-    borderTopLeftRadius: 12,
-    borderTopRightRadius: 12,
-    borderBottomRightRadius: 12,
-    elevation: 5,
-    alignItems: "center",
-    justifyContent: "center",
   },
   whiteText: {
     fontSize: 15,
