@@ -118,7 +118,7 @@ export default function App({ navigation }) {
           top: Constants.statusBarHeight + 10,
           marginLeft: 20,
         }}
-        // onPress={() => navigation.navigation.goBack()}
+        onPress={() => navigation.goBack()}
       >
         <Image source={require("../../assets/images/back_arrow.png")}></Image>
       </TouchableOpacity>

@@ -25,12 +25,12 @@ const MainStack = createStackNavigator();
 const MainStackScreen = () => (
   <MainStack.Navigator
     headerMode="none"
-    // initialRouteName="HomeCustomer"
+    initialRouteName="HomeCustomer"
     // initialRouteName="DesignStuff"
     // initialRouteName="Recyclable"
     // initialRouteName="SolidWaste"
     // initialRouteName="PaperScreen"
-    initialRouteName="ConfirmBooking"
+    // initialRouteName="ConfirmBooking"
     // initialRouteName="SelectTimeSlot"
     // initialRouteName="AcceptPickup"
     // initialRouteName="Login"

@@ -12,8 +12,9 @@ import {
 } from "react-native";
 import colors from "../../constants/colors";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import { Icon, InlineIcon } from "@iconify/react";
-import arrowDown from "@iconify/icons-bi/arrow-down";
+
+import Recyclable from "./TopNav Screens/Recyclable";
+import SolidWaste from "./TopNav Screens/SolidWaste";
 
 const screen = Dimensions.get("window");
 
@@ -45,24 +46,9 @@ const data = [
   },
 ];
 import {
-  Montserrat_100Thin,
-  Montserrat_100Thin_Italic,
-  Montserrat_200ExtraLight,
-  Montserrat_200ExtraLight_Italic,
-  Montserrat_300Light,
-  Montserrat_300Light_Italic,
   Montserrat_400Regular,
-  Montserrat_400Regular_Italic,
   Montserrat_500Medium,
-  Montserrat_500Medium_Italic,
-  Montserrat_600SemiBold,
-  Montserrat_600SemiBold_Italic,
   Montserrat_700Bold,
-  Montserrat_700Bold_Italic,
-  Montserrat_800ExtraBold,
-  Montserrat_800ExtraBold_Italic,
-  Montserrat_900Black,
-  Montserrat_900Black_Italic,
 } from "@expo-google-fonts/montserrat";
 import { useFonts } from "@expo-google-fonts/montserrat";
 import AppLoading from "expo-app-loading";
@@ -73,24 +59,9 @@ export default ({ navigation }) => {
   const [cat, setCat] = useState(1);
   const [status, setStatus] = useState("Recyclables");
   let [fontsLoaded, error] = useFonts({
-    Montserrat_100Thin,
-    Montserrat_100Thin_Italic,
-    Montserrat_200ExtraLight,
-    Montserrat_200ExtraLight_Italic,
-    Montserrat_300Light,
-    Montserrat_300Light_Italic,
     Montserrat_400Regular,
-    Montserrat_400Regular_Italic,
     Montserrat_500Medium,
-    Montserrat_500Medium_Italic,
-    Montserrat_600SemiBold,
-    Montserrat_600SemiBold_Italic,
     Montserrat_700Bold,
-    Montserrat_700Bold_Italic,
-    Montserrat_800ExtraBold,
-    Montserrat_800ExtraBold_Italic,
-    Montserrat_900Black,
-    Montserrat_900Black_Italic,
   });
 
   if (!fontsLoaded) {
@@ -111,39 +82,58 @@ export default ({ navigation }) => {
         </TouchableOpacity>
       </View>
 
-      <ScrollView
-        style={{ flexDirection: "row", padding: 20 }}
-        horizontal={true}
-      >
-        {/*  */}
-        {data?.map((item, itemIdx) => (
-          <Fragment key={itemIdx}>
-            <View style={{ paddingRight: 10 }}>
-              <TouchableOpacity onPress={() => setStatus(item.name)}>
-                <Image
-                  source={item.icon}
+      <View>
+        <ScrollView
+          style={{
+            flexDirection: "row",
+            marginTop: 15,
+            // backgroundColor: "red",
+            paddingBottom: 15,
+          }}
+          showsHorizontalScrollIndicator={false}
+          horizontal={true}
+        >
+          {/*  */}
+          {data?.map((item, itemIdx) => (
+            <Fragment key={itemIdx}>
+              <View style={{ paddingRight: 10 }}>
+                <TouchableOpacity onPress={() => setStatus(item.name)}>
+                  <Image
+                    source={item.icon}
+                    style={{
+                      height: status === item.name ? 75 : 55,
+                      width: status === item.name ? 95 : 75,
+                    }}
+                  />
+                </TouchableOpacity>
+                <Text
                   style={{
-                    height: status === item.name ? 75 : 55,
-                    width: status === item.name ? 95 : 75,
+                    color: status === item.name ? colors.black : colors.grey,
+                    fontFamily: "Montserrat_400Regular",
+                    fontSize: status === item.name ? 15 : 12,
+                    textAlign: "center",
+                    marginTop: -3,
                   }}
-                />
-              </TouchableOpacity>
-              <Text
-                style={{
-                  color: status === item.name ? colors.black : colors.grey,
-                  fontFamily: "Montserrat_400Regular",
-                  fontSize: status === item.name ? 15 : 12,
-                  textAlign: "center",
-                  marginTop: -3,
-                }}
-              >
-                {" "}
-                {item.name}{" "}
-              </Text>
-            </View>
-          </Fragment>
-        ))}
-      </ScrollView>
+                >
+                  {" "}
+                  {item.name}{" "}
+                </Text>
+              </View>
+            </Fragment>
+          ))}
+        </ScrollView>
+      </View>
+
+      {status === "Recyclables" && (
+        <Fragment>
+          <Recyclable />
+        </Fragment>
+      )}
+      {status === "Solid Waste" && (
+        <Fragment>
+          <SolidWaste />
+        </Fragment>
+      )}
 
       <View
         style={{
@@ -156,7 +146,7 @@ export default ({ navigation }) => {
         <View style={styles.separator2} />
       </View>
 
-      <View style={styles.bottomDesign}>
+      {/* <View style={styles.bottomDesign}>
         <Image
           source={require("../../assets/images/pattern.png")}
           style={styles.bottomUnder}
@@ -172,9 +162,8 @@ export default ({ navigation }) => {
           style={styles.topUnder}
         />
         <View style={styles.topTop}></View>
-        {/* <View style={styles.design} >
-              </View> */}
-      </View>
+
+      </View> */}
 
       {/* {cat === 1 && (
             <Fragment>
@@ -226,6 +215,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.red,
     justifyContent: "flex-end",
+    zIndex: -10,
   },
   bottomUnder: {
     width: "100%",
@@ -292,7 +282,7 @@ const styles = StyleSheet.create({
     // height: 20,
     marginLeft: 20,
     marginRight: 10,
-    top: 220,
+    top: Constants.statusBarHeight + 165,
     width: box_width,
   },
   separator2: {
@@ -300,7 +290,7 @@ const styles = StyleSheet.create({
     height: StyleSheet.hairlineWidth,
     marginRight: 20,
     marginLeft: 10,
-    top: 220,
+    top: Constants.statusBarHeight + 165,
     // top: screen.height / 2,
     width: box_width,
   },

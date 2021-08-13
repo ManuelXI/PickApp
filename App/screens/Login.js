@@ -40,6 +40,17 @@ import AppLoading from "expo-app-loading";
 const screen = Dimensions.get("window");
 
 export default ({ navigation }) => {
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+
+  // handleSignUp = () => {
+  //   firebase
+  //     .auth()
+  //     .createUserWithEmailAndPassword(this.state.email, this.state.password)
+  //     .then(() => this.props.navigation.navigate("HomeCustomer"))
+  //     .catch((error) => this.setState({ errorMessage: error.message }));
+  //   console.log(this.state.email);
+  // console.log(this.state.)
   let [fontsLoaded, error] = useFonts({
     Montserrat_100Thin,
     Montserrat_100Thin_Italic,
@@ -65,18 +76,6 @@ export default ({ navigation }) => {
     return <AppLoading />;
   }
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  handleSignUp = () => {
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(this.state.email, this.state.password)
-      .then(() => this.props.navigation.navigate("HomeCustomer"))
-      .catch((error) => this.setState({ errorMessage: error.message }));
-    console.log(this.state.email);
-    // console.log(this.state.)
-  };
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
@@ -101,7 +100,7 @@ export default ({ navigation }) => {
             <TextInput
               style={styles.input}
               underlineColorAndroid="transparent"
-              onChangeText={(email) => setEmail(email)}
+              // onChangeText={(email) => setEmail(email)}
             />
           </View>
         </View>
@@ -112,7 +111,7 @@ export default ({ navigation }) => {
             <TextInput
               style={styles.input}
               underlineColorAndroid="transparent"
-              onChangeText={(password) => setPassword(password)}
+              // onChangeText={(password) => setPassword(password)}
               secureTextEntry={true}
             />
           </View>
@@ -120,7 +119,7 @@ export default ({ navigation }) => {
 
         <TouchableOpacity
           style={styles.login}
-          // onPress={() => navigation.push("HomeCustomer")}
+          onPress={() => navigation.push("HomeCustomer")}
           // onPress={this.handleSignUp}
         >
           <Text style={styles.loginText}> Login </Text>
@@ -217,7 +216,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.blue,
     alignContent: "center",
     justifyContent: "center",
-    borderWidth: 1,
+    borderWidth: 3,
     borderColor: colors.white,
     borderTopLeftRadius: 12,
     borderBottomLeftRadius: 12,
@@ -243,8 +242,9 @@ const styles = StyleSheet.create({
   },
   bottom: {
     flexDirection: "row",
-    position: "absolute",
+    // position: "absolute",
     bottom: 25,
+    marginTop: 35,
   },
   bottomtext1: {
     fontFamily: "Montserrat_400Regular",

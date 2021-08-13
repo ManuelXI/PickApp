@@ -25,24 +25,9 @@ let box_width = screen.width / 2 - 30;
 
 import { ScrollView } from "react-native-gesture-handler";
 import {
-  Montserrat_100Thin,
-  Montserrat_100Thin_Italic,
-  Montserrat_200ExtraLight,
-  Montserrat_200ExtraLight_Italic,
-  Montserrat_300Light,
-  Montserrat_300Light_Italic,
   Montserrat_400Regular,
-  Montserrat_400Regular_Italic,
   Montserrat_500Medium,
-  Montserrat_500Medium_Italic,
-  Montserrat_600SemiBold,
-  Montserrat_600SemiBold_Italic,
   Montserrat_700Bold,
-  Montserrat_700Bold_Italic,
-  Montserrat_800ExtraBold,
-  Montserrat_800ExtraBold_Italic,
-  Montserrat_900Black,
-  Montserrat_900Black_Italic,
 } from "@expo-google-fonts/montserrat";
 import { useFonts } from "@expo-google-fonts/montserrat";
 import AppLoading from "expo-app-loading";
@@ -50,24 +35,9 @@ import AppLoading from "expo-app-loading";
 export default ({ navigation }) => {
   // export const RecyclableList = ({ navigation }) => {
   let [fontsLoaded, error] = useFonts({
-    Montserrat_100Thin,
-    Montserrat_100Thin_Italic,
-    Montserrat_200ExtraLight,
-    Montserrat_200ExtraLight_Italic,
-    Montserrat_300Light,
-    Montserrat_300Light_Italic,
     Montserrat_400Regular,
-    Montserrat_400Regular_Italic,
     Montserrat_500Medium,
-    Montserrat_500Medium_Italic,
-    Montserrat_600SemiBold,
-    Montserrat_600SemiBold_Italic,
     Montserrat_700Bold,
-    Montserrat_700Bold_Italic,
-    Montserrat_800ExtraBold,
-    Montserrat_800ExtraBold_Italic,
-    Montserrat_900Black,
-    Montserrat_900Black_Italic,
   });
 
   if (!fontsLoaded) {
@@ -78,7 +48,7 @@ export default ({ navigation }) => {
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
 
-      <ScrollView style={{ top: Constants.statusBarHeight + 10 }}>
+      <ScrollView style={{ top: 5 }} showsVerticalScrollIndicator={false}>
         <View
           style={{
             flexDirection: "row",
@@ -87,7 +57,7 @@ export default ({ navigation }) => {
           }}
         >
           <Card style={styles.card1}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.push("PaperScreen")}>
               <Image
                 source={require("../../../assets/images/PaperImage.jpg")}
                 style={styles.imageContainer}

@@ -1,9 +1,8 @@
 import React from "react";
 import Navigation from "./config/Navigation";
 
-export default () => <Navigation />;
+import * as firebase from "firebase";
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 var firebaseConfig = {
   apiKey: "AIzaSyA20vjFnAgtQv-oMC2BbU3PkDSixy_cnxw",
   authDomain: "pickapp-25587.firebaseapp.com",
@@ -15,3 +14,5 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
+export default () => <Navigation />;

@@ -23,13 +23,30 @@ let box_height2 = 200;
 let box_width = screen.width / 2 - 30;
 
 import { ScrollView } from "react-native-gesture-handler";
+import {
+  Montserrat_400Regular,
+  Montserrat_500Medium,
+  Montserrat_700Bold,
+} from "@expo-google-fonts/montserrat";
+import { useFonts } from "@expo-google-fonts/montserrat";
+import AppLoading from "expo-app-loading";
 
 export default ({ navigation }) => {
+  let [fontsLoaded, error] = useFonts({
+    Montserrat_400Regular,
+    Montserrat_500Medium,
+    Montserrat_700Bold,
+  });
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
+
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
 
-      <ScrollView style={{ top: 60 }}>
+      <ScrollView style={{ top: 5 }}>
         <View
           style={{
             flexDirection: "row",
@@ -232,8 +249,8 @@ const styles = StyleSheet.create({
     bottom: 5,
     right: 3,
     color: colors.white,
-    // fontFamily: 'Montserrat_700Bold',
-    fontWeight: "bold",
+    fontFamily: "Montserrat_700Bold",
+    // fontWeight: "bold",
     fontSize: 18,
     textAlign: "right",
   },
