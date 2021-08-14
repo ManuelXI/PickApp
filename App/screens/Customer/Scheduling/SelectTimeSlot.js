@@ -17,6 +17,7 @@ import Constants from "expo-constants";
 import ModalDropdown from "react-native-modal-dropdown";
 import colors from "../../../constants/colors";
 import DateTimePicker from "@react-native-community/datetimepicker";
+import { format } from "date-fns";
 
 const data = [
   {
@@ -46,6 +47,11 @@ import {
 } from "@expo-google-fonts/montserrat";
 
 export default function App({ navigation }) {
+  // let todayDate = '${ format(new Date(date), "MMM do, yyyy")}';
+  // {
+  //   console.log(todayDate);
+  // }
+
   const [status, setStatus] = useState("7:30 - 9:30");
   const [date, setDate] = useState(new Date());
   const [mode, setMode] = useState("date");
@@ -60,9 +66,9 @@ export default function App({ navigation }) {
     let tempDate = new Date(currentDate);
     let fDate =
       tempDate.getDate() +
-      "/" +
+      " / " +
       (tempDate.getMonth() + 1) +
-      "/" +
+      " / " +
       tempDate.getFullYear();
     setText(fDate);
   };
@@ -108,7 +114,14 @@ export default function App({ navigation }) {
               }}
             >
               {" "}
-              {text}
+              {text === "Empty" && (
+                <Fragment>
+                  <Text style={styles.text}>
+                    {` ${format(new Date(date), "d / M / yyyy")}`}
+                  </Text>
+                </Fragment>
+              )}
+              {text !== "Empty" && <Fragment>{text}</Fragment>}
             </Text>
           </TouchableOpacity>
         </View>
@@ -121,6 +134,7 @@ export default function App({ navigation }) {
             is24Hour={true}
             display="default"
             onChange={onChange}
+            minimumDate={new Date(date)}
           />
         )}
 

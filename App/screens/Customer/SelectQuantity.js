@@ -158,7 +158,10 @@ export default function App({ navigation }) {
         >
           Select type of Waste
         </Text>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.push("SearchScreen")}
+        >
           <Text style={styles.buttonText}> Next </Text>
         </TouchableOpacity>
       </View>
