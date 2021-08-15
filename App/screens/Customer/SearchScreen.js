@@ -38,50 +38,26 @@ export default function App({ navigation }) {
     <View style={styles.container}>
       <StatusBar style="auto" />
 
-      <TouchableOpacity
-        style={{
-          position: "absolute",
-          width: 32,
-          height: 32,
-          alignSelf: "flex-start",
-          top: Constants.statusBarHeight + 10,
-          marginLeft: 20,
-        }}
-        onPress={() => navigation.goBack()}
-      >
-        <Image
-          style={{ tintColor: colors.black }}
-          source={require("../../assets/images/back_arrow.png")}
-        ></Image>
-      </TouchableOpacity>
-
-      <View
-        style={{
-          marginTop: 15,
-          flexDirection: "row",
-          marginHorizontal: 20,
-          width: screen.width - 40,
-          position: "absolute",
-          top: Constants.statusBarHeight + 42,
-          backgroundColor: colors.white,
-          alignItems: "center",
-          elevation: 5,
-          height: 50,
-          borderRadius: 12,
-        }}
-      >
-        <View>
+      <View>
+        <TouchableOpacity
+          style={{
+            position: "absolute",
+            width: 32,
+            height: 32,
+            alignSelf: "flex-start",
+            top: Constants.statusBarHeight + 10,
+            marginLeft: 20,
+          }}
+          onPress={() => navigation.goBack()}
+        >
           <Image
-            style={{
-              tintColor: colors.black,
-              width: 23,
-              height: 23,
-              marginLeft: 10,
-              marginRight: 15,
-            }}
-            source={require("../../assets/images/searchIcon.png")}
+            style={{ tintColor: colors.black }}
+            source={require("../../assets/images/back_arrow.png")}
           ></Image>
-        </View>
+        </TouchableOpacity>
+      </View>
+
+      {/* <View style={{ top: Constants.statusBarHeight + 42 }}>
         <GooglePlacesAutocomplete
           placeholder="Where to"
           styles={{
@@ -101,7 +77,74 @@ export default function App({ navigation }) {
           }}
           nearbyPlacesAPI="GooglePlacesSearch"
           debounce={400}
+          enablePoweredByContainer={false}
         />
+      </View> */}
+
+      <View style={{ flex: 1 }}>
+        <View style={{ position: "relative" }}>
+          <View
+            style={{
+              marginTop: 15,
+              flexDirection: "row",
+              marginHorizontal: 20,
+              width: screen.width - 40,
+              position: "relative",
+              top: Constants.statusBarHeight + 42,
+              backgroundColor: colors.white,
+              alignItems: "center",
+              elevation: 5,
+              height: 50,
+              borderRadius: 12,
+              // zIndex: -10,
+              // flex: 1,
+            }}
+          >
+            <Image
+              style={{
+                tintColor: colors.black,
+                width: 23,
+                height: 23,
+                marginLeft: 10,
+                marginRight: 15,
+              }}
+              source={require("../../assets/images/searchIcon.png")}
+            ></Image>
+          </View>
+        </View>
+        <View
+          style={{
+            position: "absolute",
+            // top: Constants.statusBarHeight + 60,
+            top: Constants.statusBarHeight + 60,
+            marginLeft: 63,
+            zIndex: 10,
+          }}
+        >
+          <GooglePlacesAutocomplete
+            placeholder="Enter your location"
+            styles={{
+              container: {
+                flex: 0,
+                width: screen.width - 88,
+                alignSelf: "center",
+                backgroundColor: "red",
+              },
+              textInput: {
+                fontSize: 15,
+                fontFamily: "Montserrat_400Regular",
+                color: colors.black,
+              },
+            }}
+            query={{
+              key: GOOGLE_MAPS_APIKEY,
+              language: "en",
+            }}
+            nearbyPlacesAPI="GooglePlacesSearch"
+            debounce={400}
+            enablePoweredByContainer={false}
+          />
+        </View>
       </View>
     </View>
   );
@@ -110,9 +153,9 @@ export default function App({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    // backgroundColor: "#fff",
+    // alignItems: "center",
+    // justifyContent: "center",
     backgroundColor: colors.white,
   },
 });

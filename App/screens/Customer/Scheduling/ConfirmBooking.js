@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Dimensions,
   Image,
+  Modal,
 } from "react-native";
 const screen = Dimensions.get("window");
 import Constants from "expo-constants";
@@ -25,6 +26,8 @@ export default function App({ navigation }) {
   let arrivalTime = "10 minutes";
   let tripCost = 19;
 
+  const [modalOpen, setModalOpen] = useState(false);
+
   let [fontsLoaded, error] = useFonts({
     Montserrat_400Regular,
     Montserrat_500Medium,
@@ -39,6 +42,51 @@ export default function App({ navigation }) {
     <View style={styles.container}>
       <StatusBar style="auto" />
       {/* <Text> sfhdhshx </Text> */}
+
+      <Modal
+        visible={modalOpen}
+        animationType="slide"
+        transparent={true}
+        hasBackdrop={true}
+        backdropColor={"black"}
+        backdropOpacity={0.7}
+      >
+        <View
+          style={{
+            height: 110,
+            width: 250,
+            borderWidth: 2,
+            borderColor: colors.blue,
+            backgroundColor: colors.white,
+            alignSelf: "center",
+            justifyContent: "center",
+            alignItems: "center",
+            borderRadius: 16,
+            top: screen.height / 2 - 100,
+          }}
+        >
+          <Text style={styles.blackText}> Booking Sucessful </Text>
+          <TouchableOpacity
+            style={{
+              width: 75,
+              height: 50,
+              borderWidth: 2,
+              borderColor: colors.white,
+              backgroundColor: colors.blue,
+              justifyContent: "center",
+              elevation: 5,
+              marginTop: 15,
+              borderTopLeftRadius: 12,
+              borderTopRightRadius: 12,
+              borderBottomRightRadius: 12,
+            }}
+            onPress={() => setModalOpen(false)}
+          >
+            <Text style={styles.whiteText}>Ok</Text>
+          </TouchableOpacity>
+        </View>
+      </Modal>
+
       <Card style={styles.pickupContainer}>
         <View>
           <View style={styles.outerBox}>
@@ -116,7 +164,10 @@ export default function App({ navigation }) {
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity style={styles.opButton}>
+        <TouchableOpacity
+          style={styles.opButton}
+          onPress={() => setModalOpen(true)}
+        >
           <Text style={styles.whiteText}> Confirm Booking </Text>
         </TouchableOpacity>
       </Card>
