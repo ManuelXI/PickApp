@@ -52,6 +52,10 @@ export default function App({ navigation }) {
         backdropOpacity={0.7}
       >
         <View
+          style={{ flex: 1, backgroundColor: "black", opacity: 0.7 }}
+        ></View>
+
+        <View
           style={{
             height: 110,
             width: 250,
@@ -63,6 +67,7 @@ export default function App({ navigation }) {
             alignItems: "center",
             borderRadius: 16,
             top: screen.height / 2 - 100,
+            position: "absolute",
           }}
         >
           <Text style={styles.blackText}> Booking Sucessful </Text>
@@ -80,7 +85,8 @@ export default function App({ navigation }) {
               borderTopRightRadius: 12,
               borderBottomRightRadius: 12,
             }}
-            onPress={() => setModalOpen(false)}
+            // onPress={() => setModalOpen(false)}
+            onPress={() => navigation.push("HomeCustomer")}
           >
             <Text style={styles.whiteText}>Ok</Text>
           </TouchableOpacity>
