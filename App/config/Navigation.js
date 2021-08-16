@@ -30,10 +30,10 @@ const MainStackScreen = () => (
     // initialRouteName="Recyclable"
     // initialRouteName="SolidWaste"
     // initialRouteName="PaperScreen"
-    initialRouteName="ConfirmBooking"
+    // initialRouteName="ConfirmBooking"
     // initialRouteName="SelectTimeSlot"
     // initialRouteName="SearchScreen"
-    // initialRouteName="SelectQuantity"
+    initialRouteName="AcceptPickup"
     // initialRouteName="Login"
   >
     <MainStack.Screen
