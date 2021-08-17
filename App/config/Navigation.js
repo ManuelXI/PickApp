@@ -12,7 +12,16 @@ import HomeCustomer from "../screens/Customer/HomeCustomer";
 import DesignStuff from "../screens/Customer/DesignStuff";
 import Recyclable from "../screens/Customer/TopNav Screens/Recyclable";
 import SolidWaste from "../screens/Customer/TopNav Screens/SolidWaste";
-import PaperScreen from "../screens/Customer/PaperScreen";
+
+import PaperScreen from "../screens/Customer/WasteTypes/PaperScreen";
+import MetalScreen from "../screens/Customer/WasteTypes/MetalScreen";
+import WoodScreen from "../screens/Customer/WasteTypes/WoodScreen";
+import GlassScreen from "../screens/Customer/WasteTypes/GlassScreen";
+import PlasticBottlesScreen from "../screens/Customer/WasteTypes/PlasticBottlesScreen";
+import CandTScreen from "../screens/Customer/WasteTypes/CandTScreen";
+import CeramicsScreen from "../screens/Customer/WasteTypes/CeramicsScreen";
+import PlasticSachetsScreen from "../screens/Customer/WasteTypes/PlasticSachetsScreen";
+
 import SelectQuantity from "../screens/Customer/SelectQuantity";
 import SearchScreen from "../screens/Customer/SearchScreen";
 import AcceptPickup from "../screens/Customer/AcceptPickup";
@@ -27,13 +36,14 @@ const MainStackScreen = () => (
     headerMode="none"
     // initialRouteName="HomeCustomer"
     // initialRouteName="DesignStuff"
+    // initialRouteName="PlasticSachetsScreen"
+    initialRouteName="HomeCustomer"
     // initialRouteName="Recyclable"
-    // initialRouteName="SolidWaste"
     // initialRouteName="PaperScreen"
     // initialRouteName="ConfirmBooking"
-    // initialRouteName="SelectTimeSlot"
+    // initialRouteNames="SelectTimeSlot"
     // initialRouteName="SearchScreen"
-    initialRouteName="AcceptPickup"
+    // initialRouteName="AcceptPickup"
     // initialRouteName="Login"
   >
     <MainStack.Screen
@@ -49,7 +59,22 @@ const MainStackScreen = () => (
     <MainStack.Screen name="DesignStuff" component={DesignStuff} />
     <MainStack.Screen name="Recyclable" component={Recyclable} />
     <MainStack.Screen name="SolidWaste" component={SolidWaste} />
+
     <MainStack.Screen name="PaperScreen" component={PaperScreen} />
+    <MainStack.Screen name="MetalScreen" component={MetalScreen} />
+    <MainStack.Screen name="WoodScreen" component={WoodScreen} />
+    <MainStack.Screen name="GlassScreen" component={GlassScreen} />
+    <MainStack.Screen
+      name="PlasticBottlesScreen"
+      component={PlasticBottlesScreen}
+    />
+    <MainStack.Screen name="CeramicsScreen" component={CeramicsScreen} />
+    <MainStack.Screen name="CandTScreen" component={CandTScreen} />
+    <MainStack.Screen
+      name="PlasticSachetsScreen"
+      component={PlasticSachetsScreen}
+    />
+
     <MainStack.Screen name="SelectQuantity" component={SelectQuantity} />
     <MainStack.Screen name="SearchScreen" component={SearchScreen} />
     <MainStack.Screen name="AcceptPickup" component={AcceptPickup} />

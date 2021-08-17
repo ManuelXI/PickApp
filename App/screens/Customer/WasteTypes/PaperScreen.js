@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   Dimensions,
 } from "react-native";
-import colors from "../../constants/colors";
+import colors from "../../../constants/colors";
 import { useFonts } from "@expo-google-fonts/montserrat";
 import AppLoading from "expo-app-loading";
 const screen = Dimensions.get("window");
@@ -65,7 +65,7 @@ export default function App({ navigation }) {
     <View style={styles.container}>
       <StatusBar style="auto" />
       <Image
-        source={require("../../assets/images/PaperImage.jpg")}
+        source={require("../../../assets/images/PaperImage.jpg")}
         style={styles.imageContainer}
       ></Image>
       <View style={styles.overlay} />
@@ -102,7 +102,7 @@ export default function App({ navigation }) {
         }}
       >
         <Image
-          source={require("../../assets/images/RecyclableIcon.png")}
+          source={require("../../../assets/images/RecyclableIcon.png")}
           style={styles.iconHeader}
         ></Image>
         <Text style={styles.iconText}> Recyclable </Text>
@@ -120,7 +120,9 @@ export default function App({ navigation }) {
         }}
         onPress={() => navigation.goBack()}
       >
-        <Image source={require("../../assets/images/back_arrow.png")}></Image>
+        <Image
+          source={require("../../../assets/images/back_arrow.png")}
+        ></Image>
       </TouchableOpacity>
     </View>
   );
@@ -135,13 +137,13 @@ const styles = StyleSheet.create({
   imageContainer: {
     top: 0,
     width: "110%",
-    height: "65%",
+    height: "67%",
   },
   overlay: {
     ...StyleSheet.absoluteFillObject,
     backgroundColor: colors.blue,
     opacity: 0.2,
-    height: "65%",
+    height: "67%",
   },
   bottomContainer: {
     position: "absolute",

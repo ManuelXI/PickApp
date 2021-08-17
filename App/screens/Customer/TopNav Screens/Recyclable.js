@@ -53,7 +53,7 @@ export default ({ navigation }) => {
           style={{
             flexDirection: "row",
             alignItems: "flex-start",
-            paddingBottom: 15,
+            paddingBottom: 5,
           }}
         >
           <Card style={styles.card1}>
@@ -66,7 +66,9 @@ export default ({ navigation }) => {
             </TouchableOpacity>
           </Card>
           <Card style={styles.card2}>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.push("PlasticBottlesScreen")}
+            >
               <Image
                 source={require("../../../assets/images/PlasticBottlesImage.jpg")}
                 style={styles.imageContainer2}
@@ -84,7 +86,7 @@ export default ({ navigation }) => {
           }}
         >
           <Card style={styles.card3}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.push("MetalScreen")}>
               <Image
                 source={require("../../../assets/images/MetalImage.jpg")}
                 style={styles.imageContainer2}
@@ -93,7 +95,7 @@ export default ({ navigation }) => {
             </TouchableOpacity>
           </Card>
           <Card style={styles.card4}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.push("WoodScreen")}>
               <Image
                 source={require("../../../assets/images/WoodImage.jpg")}
                 style={styles.imageContainer2}
@@ -111,7 +113,7 @@ export default ({ navigation }) => {
           }}
         >
           <Card style={styles.card3}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.push("GlassScreen")}>
               <Image
                 source={require("../../../assets/images/GlassImage.jpg")}
                 style={styles.imageContainer2}
@@ -120,7 +122,7 @@ export default ({ navigation }) => {
             </TouchableOpacity>
           </Card>
           <Card style={styles.card4}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.push("CeramicsScreen")}>
               <Image
                 source={require("../../../assets/images/CeramicsImage.jpg")}
                 style={styles.imageContainer2}
@@ -138,7 +140,7 @@ export default ({ navigation }) => {
           }}
         >
           <Card style={styles.card3}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.push("CandTScreen")}>
               <Image
                 source={require("../../../assets/images/TextilesImage.jpg")}
                 style={styles.imageContainer2}
@@ -147,9 +149,11 @@ export default ({ navigation }) => {
             </TouchableOpacity>
           </Card>
           <Card style={styles.card4}>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.push("PlasticSachetsScreen")}
+            >
               <Image
-                source={require("../../../assets/images/CeramicsImage.jpg")}
+                source={require("../../../assets/images/PlasticSachetsImage.jpg")}
                 style={styles.imageContainer2}
               ></Image>
               <Text style={styles.text}> Plastic Sachets </Text>

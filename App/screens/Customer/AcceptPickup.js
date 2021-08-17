@@ -30,13 +30,11 @@ export default function App({ navigation }) {
   let arrivalTime = "10 minutes";
   let tripCost = 19;
 
-  const [pin, setPin] = React.useState({
-    latitude: 37.78825,
-    longitude: -122.4324,
-  });
   const [region, setRegion] = React.useState({
-    latitude: 37.78825,
-    longitude: -122.4324,
+    // latitude: 37.78825,
+    // longitude: -122.4324,
+    latitude: 5.614818,
+    longitude: -0.205874,
     latitudeDelta: 0.0922,
     longitudeDelta: 0.0421,
   });
@@ -75,6 +73,13 @@ export default function App({ navigation }) {
           }}
           pinColor={colors.blue}
         >
+          <View>
+            <Image
+              source={require("../../assets/images/mapMarker.png")}
+              style={{ height: 60, width: 40 }}
+            ></Image>
+            {/* <Text>Location</Text> */}
+          </View>
           <Callout>
             <Text> My Location </Text>
           </Callout>
@@ -104,7 +109,7 @@ export default function App({ navigation }) {
         query={{
           key: GOOGLE_MAPS_APIKEY,
           language: "en",
-          components: "country:us",
+          components: "country:gh",
           // types: "establishment",
           // radius: 30000,
           // location: `${region.latitude}, ${region.longitude}`,

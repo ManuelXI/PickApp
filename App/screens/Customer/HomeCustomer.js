@@ -12,6 +12,7 @@ import {
 } from "react-native";
 import colors from "../../constants/colors";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import { useNavigation } from "@react-navigation/native";
 
 import Recyclable from "./TopNav Screens/Recyclable";
 import SolidWaste from "./TopNav Screens/SolidWaste";
@@ -67,6 +68,8 @@ export default ({ navigation }) => {
   if (!fontsLoaded) {
     return <AppLoading />;
   }
+
+  // const navigation2 = useNavigation();
 
   return (
     <View style={styles.container}>
@@ -126,6 +129,7 @@ export default ({ navigation }) => {
 
       {status === "Recyclables" && (
         <Fragment>
+          {/* <Recyclable navigation2={this.props.navigation} /> */}
           <Recyclable />
         </Fragment>
       )}
