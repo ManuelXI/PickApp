@@ -55,9 +55,7 @@ export default ({ navigation }) => {
           }}
         >
           <Card style={styles.card1}>
-            <TouchableOpacity
-              onPress={() => navigation.push("MixedWasteScreen")}
-            >
+            <TouchableOpacity>
               <Image
                 source={require("../../../assets/images/binbackground.jpeg")}
                 style={styles.imageContainer}
@@ -66,9 +64,7 @@ export default ({ navigation }) => {
             </TouchableOpacity>
           </Card>
           <Card style={styles.card2}>
-            <TouchableOpacity
-              onPress={() => navigation.push("GreenWasteScreen")}
-            >
+            <TouchableOpacity>
               <Image
                 source={require("../../../assets/images/GreenWasteImage.jpg")}
                 style={styles.imageContainer2}
@@ -86,9 +82,7 @@ export default ({ navigation }) => {
           }}
         >
           <Card style={styles.card3}>
-            <TouchableOpacity
-              onPress={() => navigation.push("ElectricalDevicesScreen")}
-            >
+            <TouchableOpacity>
               <Image
                 source={require("../../../assets/images/EDevicesImage.jpg")}
                 style={styles.imageContainer2}
@@ -97,9 +91,7 @@ export default ({ navigation }) => {
             </TouchableOpacity>
           </Card>
           <Card style={styles.card4}>
-            <TouchableOpacity
-              onPress={() => navigation.push("CandDDebrisScreen")}
-            >
+            <TouchableOpacity>
               <Image
                 source={require("../../../assets/images/CWDImage.jpg")}
                 style={styles.imageContainer2}

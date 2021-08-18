@@ -12,6 +12,8 @@ import HomeCustomer from "../screens/Customer/HomeCustomer";
 import DesignStuff from "../screens/Customer/DesignStuff";
 import Recyclable from "../screens/Customer/TopNav Screens/Recyclable";
 import SolidWaste from "../screens/Customer/TopNav Screens/SolidWaste";
+import LiquidWaste from "../screens/Customer/TopNav Screens/LiquidWaste";
+import HarzardousWaste from "../screens/Customer/TopNav Screens/HarzardousWaste";
 
 import PaperScreen from "../screens/Customer/WasteTypes/PaperScreen";
 import MetalScreen from "../screens/Customer/WasteTypes/MetalScreen";
@@ -21,6 +23,11 @@ import PlasticBottlesScreen from "../screens/Customer/WasteTypes/PlasticBottlesS
 import CandTScreen from "../screens/Customer/WasteTypes/CandTScreen";
 import CeramicsScreen from "../screens/Customer/WasteTypes/CeramicsScreen";
 import PlasticSachetsScreen from "../screens/Customer/WasteTypes/PlasticSachetsScreen";
+import MixedWasteScreen from "../screens/Customer/WasteTypes/MixedWasteScreen";
+import GreenWasteScreen from "../screens/Customer/WasteTypes/GreenWasteScreen";
+import ElectricalDevicesScreen from "../screens/Customer/WasteTypes/ElectricalDevicesScreen";
+import CandDDebrisScreen from "../screens/Customer/WasteTypes/CandDDebrisScreen";
+import SewageScreen from "../screens/Customer/WasteTypes/SewageScreen";
 
 import SelectQuantity from "../screens/Customer/SelectQuantity";
 import SearchScreen from "../screens/Customer/SearchScreen";
@@ -37,9 +44,10 @@ const MainStackScreen = () => (
     // initialRouteName="HomeCustomer"
     // initialRouteName="DesignStuff"
     // initialRouteName="PlasticSachetsScreen"
-    initialRouteName="HomeCustomer"
-    // initialRouteName="Recyclable"
-    // initialRouteName="PaperScreen"
+    // initialRouteName="HomeCustomer"
+    // initialRouteName="SolidWaste"
+    initialRouteName="AcceptPickup"
+    // initialRouteName="ElectricalDevicesScreen"
     // initialRouteName="ConfirmBooking"
     // initialRouteNames="SelectTimeSlot"
     // initialRouteName="SearchScreen"
@@ -59,6 +67,8 @@ const MainStackScreen = () => (
     <MainStack.Screen name="DesignStuff" component={DesignStuff} />
     <MainStack.Screen name="Recyclable" component={Recyclable} />
     <MainStack.Screen name="SolidWaste" component={SolidWaste} />
+    <MainStack.Screen name="LiquidWaste" component={LiquidWaste} />
+    <MainStack.Screen name="HarzardousWaste" component={HarzardousWaste} />
 
     <MainStack.Screen name="PaperScreen" component={PaperScreen} />
     <MainStack.Screen name="MetalScreen" component={MetalScreen} />
@@ -69,11 +79,19 @@ const MainStackScreen = () => (
       component={PlasticBottlesScreen}
     />
     <MainStack.Screen name="CeramicsScreen" component={CeramicsScreen} />
-    <MainStack.Screen name="CandTScreen" component={CandTScreen} />
     <MainStack.Screen
       name="PlasticSachetsScreen"
       component={PlasticSachetsScreen}
     />
+    <MainStack.Screen name="CandTScreen" component={CandTScreen} />
+    <MainStack.Screen name="MixedWasteScreen" component={MixedWasteScreen} />
+    <MainStack.Screen name="CandDDebrisScreen" component={CandDDebrisScreen} />
+    <MainStack.Screen
+      name="ElectricalDevicesScreen"
+      component={ElectricalDevicesScreen}
+    />
+    <MainStack.Screen name="GreenWasteScreen" component={GreenWasteScreen} />
+    <MainStack.Screen name="SewageScreen" component={SewageScreen} />
 
     <MainStack.Screen name="SelectQuantity" component={SelectQuantity} />
     <MainStack.Screen name="SearchScreen" component={SearchScreen} />

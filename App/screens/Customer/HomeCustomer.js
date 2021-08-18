@@ -16,6 +16,8 @@ import { useNavigation } from "@react-navigation/native";
 
 import Recyclable from "./TopNav Screens/Recyclable";
 import SolidWaste from "./TopNav Screens/SolidWaste";
+import LiquidWaste from "./TopNav Screens/LiquidWaste";
+import HarzardousWaste from "./TopNav Screens/HarzardousWaste";
 
 const screen = Dimensions.get("window");
 
@@ -136,6 +138,16 @@ export default ({ navigation }) => {
       {status === "Solid Waste" && (
         <Fragment>
           <SolidWaste />
+        </Fragment>
+      )}
+      {status === "Liquid Waste" && (
+        <Fragment>
+          <LiquidWaste />
+        </Fragment>
+      )}
+      {status === "Hazards" && (
+        <Fragment>
+          <HarzardousWaste />
         </Fragment>
       )}
 

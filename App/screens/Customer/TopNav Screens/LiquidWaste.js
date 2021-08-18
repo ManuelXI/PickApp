@@ -18,9 +18,9 @@ const screen = Dimensions.get("window");
 
 let design_height = 120;
 let design_curve = 70;
-let box_height1 = 180;
+let box_height1 = 200 * 1.5;
 let box_height2 = 200;
-let box_width = screen.width / 2 - 30;
+let box_width = screen.width - 30;
 
 import { ScrollView } from "react-native-gesture-handler";
 import {
@@ -55,59 +55,12 @@ export default ({ navigation }) => {
           }}
         >
           <Card style={styles.card1}>
-            <TouchableOpacity
-              onPress={() => navigation.push("MixedWasteScreen")}
-            >
+            <TouchableOpacity onPress={() => navigation.push("SewageScreen")}>
               <Image
-                source={require("../../../assets/images/binbackground.jpeg")}
+                source={require("../../../assets/images/SewageImage.jpg")}
                 style={styles.imageContainer}
               ></Image>
-              <Text style={styles.text}> Mixed Waste </Text>
-            </TouchableOpacity>
-          </Card>
-          <Card style={styles.card2}>
-            <TouchableOpacity
-              onPress={() => navigation.push("GreenWasteScreen")}
-            >
-              <Image
-                source={require("../../../assets/images/GreenWasteImage.jpg")}
-                style={styles.imageContainer2}
-              ></Image>
-              <Text style={styles.text}> Green Waste </Text>
-            </TouchableOpacity>
-          </Card>
-        </View>
-
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "flex-start",
-            paddingBottom: 15,
-          }}
-        >
-          <Card style={styles.card3}>
-            <TouchableOpacity
-              onPress={() => navigation.push("ElectricalDevicesScreen")}
-            >
-              <Image
-                source={require("../../../assets/images/EDevicesImage.jpg")}
-                style={styles.imageContainer2}
-              ></Image>
-              <Text style={styles.text1}> Electrical Devices </Text>
-            </TouchableOpacity>
-          </Card>
-          <Card style={styles.card4}>
-            <TouchableOpacity
-              onPress={() => navigation.push("CandDDebrisScreen")}
-            >
-              <Image
-                source={require("../../../assets/images/CWDImage.jpg")}
-                style={styles.imageContainer2}
-              ></Image>
-              <Text style={styles.text}>
-                {" "}
-                Construction & Demolition Debris{" "}
-              </Text>
+              <Text style={styles.text}> Sewage </Text>
             </TouchableOpacity>
           </Card>
         </View>
@@ -215,29 +168,6 @@ const styles = StyleSheet.create({
     marginRight: 10,
     marginLeft: 20,
     marginTop: 10,
-  },
-  card2: {
-    height: box_height2,
-    width: box_width,
-    borderRadius: 15,
-    marginRight: 20,
-    marginLeft: 10,
-    marginTop: 10,
-  },
-  card3: {
-    height: box_height2,
-    width: box_width,
-    borderRadius: 15,
-    marginRight: 10,
-    marginLeft: 20,
-  },
-  card4: {
-    height: box_height2,
-    width: box_width,
-    borderRadius: 15,
-    marginRight: 20,
-    marginLeft: 10,
-    marginTop: 15,
   },
   cardinner: {
     height: box_height1,

@@ -265,6 +265,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     marginRight: 10,
     marginLeft: 20,
+    marginTop: 10,
   },
   card2: {
     height: box_height2,
@@ -272,6 +273,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     marginRight: 20,
     marginLeft: 10,
+    marginTop: 10,
   },
   card3: {
     height: box_height2,
