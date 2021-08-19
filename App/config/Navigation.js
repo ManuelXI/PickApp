@@ -35,6 +35,8 @@ import AcceptPickup from "../screens/Customer/AcceptPickup";
 import SelectTimeSlot from "../screens/Customer/Scheduling/SelectTimeSlot";
 import ConfirmBooking from "../screens/Customer/Scheduling/ConfirmBooking";
 
+import EditAccount from "../screens/Customer/DrawerScreens/EditAccount";
+
 const MainStack = createStackNavigator();
 // const Drawer = createDrawerNavigator();
 
@@ -46,7 +48,7 @@ const MainStackScreen = () => (
     // initialRouteName="PlasticSachetsScreen"
     // initialRouteName="HomeCustomer"
     // initialRouteName="SolidWaste"
-    initialRouteName="AcceptPickup"
+    initialRouteName="EditAccount"
     // initialRouteName="ElectricalDevicesScreen"
     // initialRouteName="ConfirmBooking"
     // initialRouteNames="SelectTimeSlot"
@@ -98,6 +100,8 @@ const MainStackScreen = () => (
     <MainStack.Screen name="AcceptPickup" component={AcceptPickup} />
     <MainStack.Screen name="SelectTimeSlot" component={SelectTimeSlot} />
     <MainStack.Screen name="ConfirmBooking" component={ConfirmBooking} />
+
+    <MainStack.Screen name="EditAccount" component={EditAccount} />
   </MainStack.Navigator>
 );
 
