@@ -40,9 +40,9 @@ export default function App({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
       <Image
-        source={require("../../../assets/images/pattern.png")}
+        source={require("../../../assets/images/editAccountPic.jpg")}
         style={styles.imageContainer}
       ></Image>
       <View style={styles.overlay} />
@@ -56,7 +56,7 @@ export default function App({ navigation }) {
           }}
         >
           <Image
-            source={require("../../../assets/images/SQbackground.jpg")}
+            source={require("../../../assets/images/profilePic.jpg")}
             style={styles.profileImage}
           ></Image>
         </TouchableOpacity>
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
   overlay: {
     ...StyleSheet.absoluteFillObject,
     backgroundColor: colors.blue,
-    opacity: 0.8,
+    opacity: 0.5,
     height: "65%",
   },
   bottomContainer: {
