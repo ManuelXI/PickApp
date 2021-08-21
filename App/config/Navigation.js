@@ -37,6 +37,7 @@ import ConfirmBooking from "../screens/Customer/Scheduling/ConfirmBooking";
 
 import EditAccount from "../screens/Customer/DrawerScreens/EditAccount";
 import PickupHistory from "../screens/Customer/DrawerScreens/PickupHistory";
+import Wallet from "../screens/Customer/DrawerScreens/Wallet";
 
 const MainStack = createStackNavigator();
 // const Drawer = createDrawerNavigator();
@@ -49,7 +50,8 @@ const MainStackScreen = () => (
     // initialRouteName="PlasticSachetsScreen"
     // initialRouteName="HomeCustomer"
     // initialRouteName="SolidWaste"
-    initialRouteName="PickupHistory"
+    // initialRouteName="PickupHistory"
+    initialRouteName="Wallet"
     // initialRouteName="ElectricalDevicesScreen"
     // initialRouteName="ConfirmBooking"
     // initialRouteNames="SelectTimeSlot"
@@ -104,6 +106,7 @@ const MainStackScreen = () => (
 
     <MainStack.Screen name="EditAccount" component={EditAccount} />
     <MainStack.Screen name="PickupHistory" component={PickupHistory} />
+    <MainStack.Screen name="Wallet" component={Wallet} />
   </MainStack.Navigator>
 );
 

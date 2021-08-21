@@ -22,13 +22,20 @@ import {
   Montserrat_500Medium,
   Montserrat_700Bold,
 } from "@expo-google-fonts/montserrat";
+import { ScrollView } from "react-native-gesture-handler";
 
 export default function App({ navigation }) {
   const data = [
     {
       pickupLocation: "Madina Estate",
       pickupDate: "Tuesday, 4th March ",
-      pickupTime: "7:30 - 9:30 ",
+      pickupTime: " 9:30 ",
+      pickupCost: 19,
+    },
+    {
+      pickupLocation: "Madina Estate",
+      pickupDate: "Tuesday, 4th March ",
+      pickupTime: "9:30 ",
       pickupCost: 19,
     },
   ];
@@ -52,53 +59,58 @@ export default function App({ navigation }) {
       ></Image>
       <View style={styles.overlay} />
       <View style={styles.bottomContainer}>
-        {/*  */}
-        {data?.map((item, itemIdx) => (
-          <Fragment key={itemIdx}>
-            <Card style={styles.pickupCard}>
-              <TouchableOpacity>
-                <View
-                  style={{
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  <View>
-                    <View style={{ marginBottom: 12, flexDirection: "row" }}>
-                      <Image
-                        source={require("../../../assets/images/locationIcon.png")}
-                        style={styles.cardImage}
-                      ></Image>
-                      <Text style={styles.blackText}>
-                        {item.pickupLocation}
-                      </Text>
-                    </View>
-                    <View style={{ marginBottom: 12, flexDirection: "row" }}>
-                      <Image
-                        source={require("../../../assets/images/calendarIcon.png")}
-                        style={styles.cardImage}
-                      ></Image>
-                      <Text style={styles.blackText}>{item.pickupDate}</Text>
+        <ScrollView
+          style={{ marginTop: 20 }}
+          showsVerticalScrollIndicator={false}
+        >
+          {/*  */}
+          {data?.map((item, itemIdx) => (
+            <Fragment key={itemIdx}>
+              <Card style={styles.pickupCard}>
+                <TouchableOpacity>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <View>
+                      <View style={{ marginBottom: 12, flexDirection: "row" }}>
+                        <Image
+                          source={require("../../../assets/images/locationIcon.png")}
+                          style={styles.cardImage}
+                        ></Image>
+                        <Text style={styles.blackText}>
+                          {item.pickupLocation}
+                        </Text>
+                      </View>
+                      <View style={{ marginBottom: 12, flexDirection: "row" }}>
+                        <Image
+                          source={require("../../../assets/images/calendarIcon.png")}
+                          style={styles.cardImage}
+                        ></Image>
+                        <Text style={styles.blackText}>{item.pickupDate}</Text>
+                      </View>
+                      <View style={{ flexDirection: "row" }}>
+                        <Image
+                          source={require("../../../assets/images/clockIcon.png")}
+                          style={styles.cardImage}
+                        ></Image>
+                        <Text style={styles.blackText}>{item.pickupTime}</Text>
+                      </View>
                     </View>
                     <View style={{ flexDirection: "row" }}>
-                      <Image
-                        source={require("../../../assets/images/clockIcon.png")}
-                        style={styles.cardImage}
-                      ></Image>
-                      <Text style={styles.blackText}>{item.pickupTime}</Text>
+                      <Text style={styles.currencyText}>GH₵</Text>
+                      <Text style={styles.amountText}>{item.pickupCost}</Text>
                     </View>
                   </View>
-                  <View style={{ flexDirection: "row" }}>
-                    <Text>GH₵</Text>
-                    <Text>{item.pickupCost}</Text>
-                  </View>
-                </View>
-              </TouchableOpacity>
-            </Card>
-          </Fragment>
-        ))}
+                </TouchableOpacity>
+              </Card>
+            </Fragment>
+          ))}
+        </ScrollView>
 
-        <Card style={styles.pickupCard}>
+        {/* <Card style={styles.pickupCard}>
           <TouchableOpacity>
             <View
               style={{ flexDirection: "row", justifyContent: "space-between" }}
@@ -132,7 +144,7 @@ export default function App({ navigation }) {
               </View>
             </View>
           </TouchableOpacity>
-        </Card>
+        </Card> */}
       </View>
 
       <Text style={styles.headerText}> Pickup History</Text>
@@ -244,10 +256,23 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 15,
     elevation: 5,
+    marginBottom: 10,
   },
   cardImage: {
     height: 20,
     width: 20,
     marginRight: 10,
+  },
+  currencyText: {
+    fontFamily: "Montserrat_400Regular",
+    fontSize: 15,
+    color: colors.blue,
+    marginTop: 15,
+  },
+  amountText: {
+    fontFamily: "Montserrat_400Regular",
+    fontSize: 60,
+    color: colors.blue,
+    marginLeft: 5,
   },
 });
