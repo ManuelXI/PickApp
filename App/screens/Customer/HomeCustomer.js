@@ -132,22 +132,22 @@ export default ({ navigation }) => {
       {status === "Recyclables" && (
         <Fragment>
           {/* <Recyclable navigation2={this.props.navigation} /> */}
-          <Recyclable />
+          <Recyclable navigation={navigation} />
         </Fragment>
       )}
       {status === "Solid Waste" && (
         <Fragment>
-          <SolidWaste />
+          <SolidWaste navigation={navigation} />
         </Fragment>
       )}
       {status === "Liquid Waste" && (
         <Fragment>
-          <LiquidWaste />
+          <LiquidWaste navigation={navigation} />
         </Fragment>
       )}
       {status === "Hazards" && (
         <Fragment>
-          <HarzardousWaste />
+          <HarzardousWaste navigation={navigation} />
         </Fragment>
       )}
 

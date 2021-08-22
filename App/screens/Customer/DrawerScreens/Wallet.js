@@ -35,7 +35,7 @@ export default function App({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
       <Image
         source={require("../../../assets/images/walletImage.jpg")}
         style={styles.imageContainer}

@@ -20,7 +20,7 @@ let design_height = 120;
 let design_curve = 70;
 let box_height1 = 200 * 1.5;
 let box_height2 = 200;
-let box_width = screen.width - 30;
+let box_width = screen.width - 40;
 
 import { ScrollView } from "react-native-gesture-handler";
 import {
@@ -52,6 +52,7 @@ export default ({ navigation }) => {
             flexDirection: "row",
             alignItems: "flex-start",
             paddingBottom: 15,
+            // alignItems: "center",
           }}
         >
           <Card style={styles.card1}>
@@ -165,9 +166,10 @@ const styles = StyleSheet.create({
     height: box_height1,
     width: box_width,
     borderRadius: 15,
-    marginRight: 10,
+    marginRight: 20,
     marginLeft: 20,
     marginTop: 10,
+    alignSelf: "center",
   },
   cardinner: {
     height: box_height1,

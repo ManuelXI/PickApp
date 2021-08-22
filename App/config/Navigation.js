@@ -34,6 +34,7 @@ import SearchScreen from "../screens/Customer/SearchScreen";
 import AcceptPickup from "../screens/Customer/AcceptPickup";
 import SelectTimeSlot from "../screens/Customer/Scheduling/SelectTimeSlot";
 import ConfirmBooking from "../screens/Customer/Scheduling/ConfirmBooking";
+import MyBookings from "../screens/Customer/DrawerScreens/MyBookings";
 
 import EditAccount from "../screens/Customer/DrawerScreens/EditAccount";
 import PickupHistory from "../screens/Customer/DrawerScreens/PickupHistory";
@@ -49,9 +50,9 @@ const MainStackScreen = () => (
     // initialRouteName="DesignStuff"
     // initialRouteName="PlasticSachetsScreen"
     // initialRouteName="HomeCustomer"
-    // initialRouteName="SolidWaste"
+    initialRouteName="MyBookings"
     // initialRouteName="PickupHistory"
-    initialRouteName="Wallet"
+    // initialRouteName="Wallet"
     // initialRouteName="ElectricalDevicesScreen"
     // initialRouteName="ConfirmBooking"
     // initialRouteNames="SelectTimeSlot"
@@ -103,6 +104,7 @@ const MainStackScreen = () => (
     <MainStack.Screen name="AcceptPickup" component={AcceptPickup} />
     <MainStack.Screen name="SelectTimeSlot" component={SelectTimeSlot} />
     <MainStack.Screen name="ConfirmBooking" component={ConfirmBooking} />
+    <MainStack.Screen name="MyBookings" component={MyBookings} />
 
     <MainStack.Screen name="EditAccount" component={EditAccount} />
     <MainStack.Screen name="PickupHistory" component={PickupHistory} />

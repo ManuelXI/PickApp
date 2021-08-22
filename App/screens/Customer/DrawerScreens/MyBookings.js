@@ -32,12 +32,6 @@ export default function App({ navigation }) {
       pickupTime: " 9:30 ",
       pickupCost: 19,
     },
-    {
-      pickupLocation: "Madina Estate",
-      pickupDate: "Tuesday, 4th March ",
-      pickupTime: "9:30 ",
-      pickupCost: 19,
-    },
   ];
 
   let [fontsLoaded, error] = useFonts({
@@ -147,7 +141,7 @@ export default function App({ navigation }) {
         </Card> */}
       </View>
 
-      <Text style={styles.headerText}> Pickup History</Text>
+      <Text style={styles.headerText}> My Bookings</Text>
 
       <TouchableOpacity
         style={{
@@ -195,9 +189,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     // backgroundColor: "red",
     borderTopRightRadius: 95,
+    // paddingTop: 35,
     paddingTop: 18,
-    // paddingTop: 30,
-    // justifyContent: "center",
   },
   buttonText: {
     fontFamily: "Montserrat_400Regular",
