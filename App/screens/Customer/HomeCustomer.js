@@ -79,7 +79,9 @@ export default ({ navigation }) => {
 
       <View style={styles.headerContainer}>
         <Text style={styles.headerText}> Hello, Zhuri... </Text>
-        <TouchableOpacity>
+        <TouchableOpacity
+        // onPress={() => navigation.openDrawer()}
+        >
           <Image
             source={require("../../assets/images/list.png")}
             style={styles.optionsIcon}

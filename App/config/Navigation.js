@@ -29,6 +29,7 @@ import ElectricalDevicesScreen from "../screens/Customer/WasteTypes/ElectricalDe
 import CandDDebrisScreen from "../screens/Customer/WasteTypes/CandDDebrisScreen";
 import SewageScreen from "../screens/Customer/WasteTypes/SewageScreen";
 
+import ArrivingScreen from "../screens/Customer/ArrivingScreen";
 import SelectQuantity from "../screens/Customer/SelectQuantity";
 import SearchScreen from "../screens/Customer/SearchScreen";
 import AcceptPickup from "../screens/Customer/AcceptPickup";
@@ -41,7 +42,7 @@ import PickupHistory from "../screens/Customer/DrawerScreens/PickupHistory";
 import Wallet from "../screens/Customer/DrawerScreens/Wallet";
 
 const MainStack = createStackNavigator();
-// const Drawer = createDrawerNavigator();
+const Drawer = createDrawerNavigator();
 
 const MainStackScreen = () => (
   <MainStack.Navigator
@@ -50,7 +51,7 @@ const MainStackScreen = () => (
     // initialRouteName="DesignStuff"
     // initialRouteName="PlasticSachetsScreen"
     // initialRouteName="HomeCustomer"
-    initialRouteName="MyBookings"
+    initialRouteName="ArrivingScreen"
     // initialRouteName="PickupHistory"
     // initialRouteName="Wallet"
     // initialRouteName="ElectricalDevicesScreen"
@@ -105,6 +106,7 @@ const MainStackScreen = () => (
     <MainStack.Screen name="SelectTimeSlot" component={SelectTimeSlot} />
     <MainStack.Screen name="ConfirmBooking" component={ConfirmBooking} />
     <MainStack.Screen name="MyBookings" component={MyBookings} />
+    <MainStack.Screen name="ArrivingScreen" component={ArrivingScreen} />
 
     <MainStack.Screen name="EditAccount" component={EditAccount} />
     <MainStack.Screen name="PickupHistory" component={PickupHistory} />
@@ -113,7 +115,6 @@ const MainStackScreen = () => (
 );
 
 // const DrawerScreen = () => (
-
 //   <Drawer.Navigator>
 //     <Drawer.Screen name="Recyclable" component={Recyclable} />
 //   </Drawer.Navigator>
@@ -122,8 +123,23 @@ const MainStackScreen = () => (
 export default () => (
   <NavigationContainer>
     <MainStackScreen />
-    {/* <DrawerScreen/> */}
+    {/* <DrawerScreen /> */}
+    {/* <Drawer.Navigator initialRouteName="Home">
+    <Drawer.Screen name="Recyclable" component={Recyclable} />
+  </Drawer.Navigator> */}
   </NavigationContainer>
 );
+
+// export default function Ssss() {
+//   return (
+//     <NavigationContainer>
+//       {/* <MainStackScreen /> */}
+//       {/* <DrawerScreen /> */}
+//       <Drawer.Navigator initialRouteName="Home">
+//         <Drawer.Screen name="Recyclable" component={Recyclable} />
+//       </Drawer.Navigator>
+//     </NavigationContainer>
+//   );
+// }
 
 // ex
