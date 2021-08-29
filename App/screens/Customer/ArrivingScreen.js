@@ -24,11 +24,13 @@ import {
   Montserrat_500Medium,
   Montserrat_700Bold,
 } from "@expo-google-fonts/montserrat";
-import { Colors } from "react-native/Libraries/NewAppScreen";
 
 export default function App({ navigation }) {
   let arrivalTime = "10 minutes";
   let tripCost = 19;
+  let ratingValue = 4.5;
+  let driverName = "Mark P. Kwenu";
+  let driverID = "userID 1";
 
   const [region, setRegion] = React.useState({
     // latitude: 37.78825,
@@ -84,106 +86,148 @@ export default function App({ navigation }) {
             <Text> My Location </Text>
           </Callout>
         </Marker>
+        <Marker
+          coordinate={{
+            latitude: region.latitude,
+            longitude: region.longitude,
+          }}
+          pinColor={colors.blue}
+        >
+          <View>
+            <Image
+              source={require("../../assets/images/car_top.png")}
+              style={{ height: 60, width: 40 }}
+            ></Image>
+            {/* <Text>Location</Text> */}
+          </View>
+          <Callout>
+            <Text> Driver's Location </Text>
+          </Callout>
+        </Marker>
       </MapView>
 
-      <View style={{ flex: 1, backgroundColor: "black", opacity: 0.7 }}></View>
+      {/* <View style={{ flex: 1, backgroundColor: "black", opacity: 0.7 }}></View> */}
 
       <Card style={styles.pickupContainer}>
-        <View>
-          <View style={styles.outerBox}>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "baseline",
+            // backgroundColor: "red",
+            // paddingBottom: -20,
+            top: -45,
+          }}
+        >
+          <View style={{}}>
+            <Image
+              source={require("../../assets/images/driverImage.jpg")}
+              style={{
+                height: 130,
+                width: 130,
+                borderWidth: 3,
+                borderColor: colors.blue,
+                borderRadius: 15,
+                borderTopRightRadius: 47,
+                // borderTopLeftRadius: 47,
+              }}
+            ></Image>
+          </View>
+          <View
+            style={{
+              width: 150,
+              height: 75,
+              borderRadius: 16,
+              // elevation: 0.5,
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: "row",
+              marginRight: 40,
+              top: -15,
+              backgroundColor: "#FBFAFA",
+              // marginTop: -20,
+              // backgroundColor: colors.blue,
+            }}
+          >
             <View
               style={{
-                height: 70,
-                width: 300,
-                borderRadius: 16,
-                backgroundColor: colors.white,
-                alignSelf: "center",
                 flexDirection: "row",
+                width: 140,
+                height: 65,
+                backgroundColor: colors.white,
                 alignItems: "center",
-                justifyContent: "space-between",
+                justifyContent: "center",
               }}
             >
-              <View style={{ marginLeft: 15 }}>
-                <Text
-                  style={{
-                    fontSize: 12,
-                    fontFamily: "Montserrat_400Regular",
-                    color: colors.blue,
-                  }}
-                >
-                  Estimated time of arrival
-                </Text>
-                <Text
-                  style={{
-                    fontSize: 15,
-                    fontFamily: "Montserrat_400Regular",
-                    color: colors.black,
-                  }}
-                >
-                  {" "}
-                  {arrivalTime}{" "}
-                </Text>
-              </View>
-              <View style={{ flexDirection: "row", marginRight: 15 }}>
-                <Text
-                  style={{
-                    fontSize: 18,
-                    fontFamily: "Montserrat_400Regular",
-                    color: colors.blue,
-                    top: 14,
-                  }}
-                >
-                  $
-                </Text>
-                <Text
-                  style={{
-                    fontSize: 60,
-                    fontFamily: "Montserrat_400Regular",
-                    color: colors.blue,
-                  }}
-                >
-                  {tripCost}
-                </Text>
-              </View>
+              <Image
+                source={require("../../assets/images/starIcon.png")}
+                style={{
+                  height: 45,
+                  width: 45,
+                }}
+              ></Image>
+              <Text style={styles.greyText}> {ratingValue} </Text>
             </View>
           </View>
         </View>
 
         <View
           style={{
-            marginTop: 15,
             flexDirection: "row",
-            justifyContent: "center",
+            justifyContent: "space-between",
+            alignItems: "center",
+            // backgroundColor: "red",
+            top: -25,
           }}
         >
-          <TouchableOpacity style={styles.cashOptions}>
-            <Text style={styles.blackText}> Cash </Text>
+          <View>
+            <Text style={styles.blackText}> {driverName} </Text>
+          </View>
+          <View style={{ alignItems: "flex-end" }}>
+            <Text style={styles.blackText2}>{driverID}</Text>
+            <Text style={styles.blackText1}>Pickup Agent</Text>
+          </View>
+        </View>
+
+        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+          <TouchableOpacity style={styles.xButton1}>
             <Image
-              source={require("../../assets/images/CashArrow.png")}
+              source={require("../../assets/images/callIcon.png")}
               style={{ height: 27, width: 27 }}
             ></Image>
           </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.xButton}
-            onPress={() => setModalOpen(false)}
-          >
+          <TouchableOpacity style={styles.xButton1}>
+            <Image
+              source={require("../../assets/images/messageIcon.png")}
+              style={{ height: 27, width: 27 }}
+            ></Image>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.xButton}>
             <Image
               source={require("../../assets/images/xIcon.png")}
               style={{ height: 27, width: 27 }}
             ></Image>
           </TouchableOpacity>
         </View>
-
-        <TouchableOpacity style={styles.opButton}>
-          <Text style={styles.whiteText}> Order Pickup </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.spButton}
-          onPress={() => navigation.push("SelectTimeSlot")}
-        >
-          <Text style={styles.spText}> Schedule Pickup </Text>
-        </TouchableOpacity>
       </Card>
+
+      <View
+        style={{
+          position: "absolute",
+          top: Constants.statusBarHeight + 15,
+          alignSelf: "center",
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 30,
+            fontFamily: "Montserrat_400Regular",
+            color: colors.black,
+          }}
+        >
+          {arrivalTime}
+        </Text>
+      </View>
     </View>
   );
 }
@@ -198,14 +242,15 @@ const styles = StyleSheet.create({
   pickupContainer: {
     position: "absolute",
     bottom: 0,
-    marginLeft: 10,
-    marginRight: 10,
-    height: 300,
+    // marginLeft: 10,
+    // marginRight: 10,
+    height: 250,
     backgroundColor: colors.white,
-    width: screen.width - 20,
+    width: screen.width,
     alignSelf: "center",
     borderTopRightRadius: 95,
     elevation: 10,
+    paddingHorizontal: 15,
   },
   outerBox: {
     height: 74,
@@ -254,52 +299,49 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  xButton1: {
+    width: 55,
+    height: 50,
+    backgroundColor: colors.white,
+    borderWidth: 3,
+    borderColor: colors.blue,
+    borderTopLeftRadius: 12,
+    borderTopRightRadius: 12,
+    borderBottomRightRadius: 12,
+    elevation: 5,
+    alignItems: "center",
+    justifyContent: "center",
+  },
   whiteText: {
     fontSize: 15,
     fontFamily: "Montserrat_400Regular",
     color: colors.white,
     textAlign: "center",
   },
-  opButton: {
-    width: 300,
-    height: 50,
-    backgroundColor: colors.blue,
-    borderWidth: 3,
-    borderColor: colors.white,
-    borderTopLeftRadius: 12,
-    borderBottomLeftRadius: 12,
-    borderBottomRightRadius: 12,
-    elevation: 5,
-    alignContent: "center",
-    justifyContent: "center",
-    marginTop: 15,
-    alignSelf: "center",
-  },
-  spButton: {
-    width: 300,
-    height: 50,
-    backgroundColor: colors.white,
-    borderWidth: 3,
-    borderColor: colors.blue,
-    borderTopLeftRadius: 12,
-    borderBottomLeftRadius: 12,
-    borderBottomRightRadius: 12,
-    elevation: 5,
-    alignContent: "center",
-    justifyContent: "center",
-    marginTop: 15,
-    alignSelf: "center",
-  },
-  spText: {
-    fontSize: 15,
-    fontFamily: "Montserrat_400Regular",
-    color: colors.black,
-    textAlign: "center",
-  },
   map: {
     width: screen.width,
     // height: screen.height,
-    height: screen.height + Constants.statusBarHeight,
+    height: screen.height + Constants.statusBarHeight - 180,
     // height: screen.height + 50,
+  },
+  greyText: {
+    fontSize: 40,
+    fontFamily: "Montserrat_400Regular",
+    color: colors.grey,
+  },
+  blackText: {
+    fontSize: 18,
+    fontFamily: "Montserrat_400Regular",
+    color: colors.black,
+  },
+  blackText1: {
+    fontSize: 14,
+    fontFamily: "Montserrat_400Regular",
+    color: colors.grey,
+  },
+  blackText2: {
+    fontSize: 16,
+    fontFamily: "Montserrat_400Regular",
+    color: colors.black,
   },
 });

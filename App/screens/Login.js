@@ -12,7 +12,6 @@ import {
 } from "react-native";
 import colors from "../constants/colors";
 import { Card } from "react-native-shadow-cards";
-import * as firebase from "firebase";
 
 import {
   Montserrat_100Thin,
