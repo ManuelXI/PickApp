@@ -58,12 +58,13 @@ export default function App({ navigation }) {
 
       <MapView
         style={styles.map}
-        initialRegion={{
-          latitude: region.latitude,
-          longitude: region.longitude,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
-        }}
+        region={region}
+        // region={{
+        //   latitude: region.latitude,
+        //   longitude: region.longitude,
+        //   latitudeDelta: 0.0922,
+        //   longitudeDelta: 0.0421,
+        // }}
         provider="google"
       >
         <Marker
