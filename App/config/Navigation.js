@@ -14,6 +14,7 @@ import Recyclable from "../screens/Customer/TopNav Screens/Recyclable";
 import SolidWaste from "../screens/Customer/TopNav Screens/SolidWaste";
 import LiquidWaste from "../screens/Customer/TopNav Screens/LiquidWaste";
 import HarzardousWaste from "../screens/Customer/TopNav Screens/HarzardousWaste";
+import BinLevel from "../screens/Customer/TopNav Screens/BinLevel";
 
 import PaperScreen from "../screens/Customer/WasteTypes/PaperScreen";
 import MetalScreen from "../screens/Customer/WasteTypes/MetalScreen";
@@ -42,7 +43,7 @@ import PickupHistory from "../screens/Customer/DrawerScreens/PickupHistory";
 import Wallet from "../screens/Customer/DrawerScreens/Wallet";
 
 const MainStack = createStackNavigator();
-const Drawer = createDrawerNavigator();
+// const Drawer = createDrawerNavigator();
 
 const MainStackScreen = () => (
   <MainStack.Navigator
@@ -50,16 +51,17 @@ const MainStackScreen = () => (
     // initialRouteName="HomeCustomer"
     // initialRouteName="DesignStuff"
     // initialRouteName="PlasticSachetsScreen"
-    // initialRouteName="HomeCustomer"
-    // initialRouteName="ArrivingScreen"
+    initialRouteName="HomeCustomer"
+    // initialRouteName="BinLevel"
+    // initialRouteName="LiquidWaste"
     // initialRouteName="PickupHistory"
-    // initialRouteName="Wallet"
+    // initialRouteName="DesignStuff"
     // initialRouteName="ElectricalDevicesScreen"
-    initialRouteName="AcceptPickup"
+    // initialRouteName="AcceptPickup"
     // initialRouteNames="SelectTimeSlot"
     // initialRouteName="SearchScreen"
     // initialRouteName="AcceptPickup"
-    // initialRouteName="Login"
+    // initialRouteName="Recyclable"
   >
     <MainStack.Screen
       name="Aftersplash"
@@ -76,6 +78,7 @@ const MainStackScreen = () => (
     <MainStack.Screen name="SolidWaste" component={SolidWaste} />
     <MainStack.Screen name="LiquidWaste" component={LiquidWaste} />
     <MainStack.Screen name="HarzardousWaste" component={HarzardousWaste} />
+    <MainStack.Screen name="BinLevel" component={BinLevel} />
 
     <MainStack.Screen name="PaperScreen" component={PaperScreen} />
     <MainStack.Screen name="MetalScreen" component={MetalScreen} />
@@ -114,19 +117,27 @@ const MainStackScreen = () => (
   </MainStack.Navigator>
 );
 
-// const DrawerScreen = () => (
-//   <Drawer.Navigator>
-//     <Drawer.Screen name="Recyclable" component={Recyclable} />
-//   </Drawer.Navigator>
-// );
+// const Drawer = createDrawerNavigator();
+
+// export default () => {
+//   return (
+//     <NavigationContainer>
+//       <Drawer.Navigator initialRouteName="HomeCustomer">
+//         <Drawer.Screen name="HomeCustomer" component={HomeCustomer} />
+//         <Drawer.Screen name="EditAccount" component={EditAccount} />
+//       </Drawer.Navigator>
+//     </NavigationContainer>
+//   );
+// };
 
 export default () => (
   <NavigationContainer>
+    {/* <Drawer.Navigator>
+      <Drawer.Screen name="Home" component={MainStackScreen} />
+      <Drawer.Screen name="Home" component={Wallet} />
+    </Drawer.Navigator> */}
+
     <MainStackScreen />
-    {/* <DrawerScreen /> */}
-    {/* <Drawer.Navigator initialRouteName="Home">
-    <Drawer.Screen name="Recyclable" component={Recyclable} />
-  </Drawer.Navigator> */}
   </NavigationContainer>
 );
 

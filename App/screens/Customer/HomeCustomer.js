@@ -18,6 +18,7 @@ import Recyclable from "./TopNav Screens/Recyclable";
 import SolidWaste from "./TopNav Screens/SolidWaste";
 import LiquidWaste from "./TopNav Screens/LiquidWaste";
 import HarzardousWaste from "./TopNav Screens/HarzardousWaste";
+import BinLevel from "./TopNav Screens/BinLevel";
 
 const screen = Dimensions.get("window");
 
@@ -79,9 +80,7 @@ export default ({ navigation }) => {
 
       <View style={styles.headerContainer}>
         <Text style={styles.headerText}> Hello, Zhuri... </Text>
-        <TouchableOpacity
-        // onPress={() => navigation.openDrawer()}
-        >
+        <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
           <Image
             source={require("../../assets/images/list.png")}
             style={styles.optionsIcon}
@@ -150,6 +149,11 @@ export default ({ navigation }) => {
       {status === "Hazards" && (
         <Fragment>
           <HarzardousWaste navigation={navigation} />
+        </Fragment>
+      )}
+      {status === "My Bins" && (
+        <Fragment>
+          <BinLevel navigation={navigation} />
         </Fragment>
       )}
 
