@@ -264,7 +264,10 @@ export default function App({ navigation }) {
             </TouchableOpacity>
           </View>
 
-          <TouchableOpacity style={styles.opButton}>
+          <TouchableOpacity
+            style={styles.opButton}
+            onPress={() => navigation.push("ArrivingScreen")}
+          >
             <Text style={styles.whiteText}> Order Pickup </Text>
           </TouchableOpacity>
           <TouchableOpacity

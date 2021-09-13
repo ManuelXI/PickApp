@@ -31,6 +31,7 @@ import CandDDebrisScreen from "../screens/Customer/WasteTypes/CandDDebrisScreen"
 import SewageScreen from "../screens/Customer/WasteTypes/SewageScreen";
 
 import ArrivingScreen from "../screens/Customer/ArrivingScreen";
+import FeedBackScreen from "../screens/Customer/FeedBackScreen";
 import SelectQuantity from "../screens/Customer/SelectQuantity";
 import SearchScreen from "../screens/Customer/SearchScreen";
 import AcceptPickup from "../screens/Customer/AcceptPickup";
@@ -57,7 +58,7 @@ const MainStackScreen = () => (
     // initialRouteName="PickupHistory"
     // initialRouteName="DesignStuff"
     // initialRouteName="ElectricalDevicesScreen"
-    // initialRouteName="AcceptPickup"
+    // initialRouteName="FeedBackScreen"
     // initialRouteNames="SelectTimeSlot"
     // initialRouteName="SearchScreen"
     // initialRouteName="AcceptPickup"
@@ -110,6 +111,7 @@ const MainStackScreen = () => (
     <MainStack.Screen name="ConfirmBooking" component={ConfirmBooking} />
     <MainStack.Screen name="MyBookings" component={MyBookings} />
     <MainStack.Screen name="ArrivingScreen" component={ArrivingScreen} />
+    <MainStack.Screen name="FeedBackScreen" component={FeedBackScreen} />
 
     <MainStack.Screen name="EditAccount" component={EditAccount} />
     <MainStack.Screen name="PickupHistory" component={PickupHistory} />

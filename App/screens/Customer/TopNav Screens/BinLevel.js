@@ -78,9 +78,9 @@ export default ({ navigation }) => {
                 // reset wave effect
                 this._waveRect &&
                   this._waveRect.setWaveParams([
-                    { A: 10, T: 180, fill: "#FF9F2E" },
-                    { A: 15, T: 140, fill: "#F08200" },
-                    { A: 20, T: 100, fill: "#B36100" },
+                    { A: 20, T: 190, fill: "#FF9F2E" },
+                    { A: 25, T: 150, fill: "#F08200" },
+                    { A: 30, T: 110, fill: "#B36100" },
                   ]);
               }}
             >
@@ -89,9 +89,9 @@ export default ({ navigation }) => {
                 style={_styles.wave}
                 H={waveHeight}
                 waveParams={[
-                  { A: 10, T: 180, fill: "#62c2ff" },
-                  { A: 15, T: 140, fill: "#0087dc" },
-                  { A: 20, T: 100, fill: "#1aa7ff" },
+                  { A: 20, T: 190, fill: "#62c2ff" },
+                  { A: 25, T: 150, fill: "#0087dc" },
+                  { A: 30, T: 110, fill: "#1aa7ff" },
                 ]}
                 animated={true}
               />
@@ -101,7 +101,7 @@ export default ({ navigation }) => {
           <View
             style={{
               backgroundColor: colors.black,
-              opacity: 0.6,
+              opacity: 0.5,
               flex: 1,
               position: "absolute",
               // top: 0,

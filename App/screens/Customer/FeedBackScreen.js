@@ -24,6 +24,7 @@ import {
   Montserrat_500Medium,
   Montserrat_700Bold,
 } from "@expo-google-fonts/montserrat";
+import { TextInput } from "react-native-gesture-handler";
 
 export default function App({ navigation }) {
   let arrivalTime = "10 minutes";
@@ -31,6 +32,43 @@ export default function App({ navigation }) {
   let ratingValue = 4.0;
   let driverName = "Mark P. Kwenu";
   let driverID = "userID 1";
+
+  const [defaultRating, setDefaultRating] = useState(2);
+  const [maxRating, setMaxRating] = useState([1, 2, 3, 4, 5]);
+
+  //   const whiteStar = "../../assets/images/blueStarIcon.png";
+  //     const blueStar = "../../assets/images/starIcon.png";
+
+  const blueStar =
+    "https://raw.githubusercontent.com/tranhonghan/images/main/star_filled.png";
+  const whiteStar =
+    "https://raw.githubusercontent.com/tranhonghan/images/main/star_corner.png";
+
+  const CustomRatingBar = () => {
+    return (
+      <View style={styles.customRatingBarsStyle}>
+        {maxRating.map((item, key) => {
+          return (
+            <TouchableOpacity
+              activeOpacity={0.7}
+              key={item}
+              onPress={() => setDefaultRating(item)}
+            >
+              <Image
+                style={styles.starImgStyle}
+                source={
+                  item <= defaultRating ? { uri: blueStar } : { uri: whiteStar }
+                }
+              />
+            </TouchableOpacity>
+          );
+        })}
+      </View>
+    );
+  };
+
+  const [review, setReview] = useState("null");
+  const [modalOpen, setModalOpen] = useState(false);
 
   const [region, setRegion] = React.useState({
     // latitude: 37.78825,
@@ -40,8 +78,6 @@ export default function App({ navigation }) {
     latitudeDelta: 0.0922,
     longitudeDelta: 0.0421,
   });
-  const [status, setStatus] = useState(0);
-  const [modalOpen, setModalOpen] = useState(false);
 
   let [fontsLoaded, error] = useFonts({
     Montserrat_400Regular,
@@ -189,26 +225,40 @@ export default function App({ navigation }) {
           </View>
         </View>
 
-        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-          <TouchableOpacity style={styles.xButton1}>
+        {/* <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            // alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <TouchableOpacity onPress={() => setStarValue(1)}>
             <Image
-              source={require("../../assets/images/callIcon.png")}
-              style={{ height: 27, width: 27 }}
+              source={require(whiteStar)}
+              style={{ height: 30, width: 30 }}
             ></Image>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.xButton1}>
-            <Image
-              source={require("../../assets/images/messageIcon.png")}
-              style={{ height: 27, width: 27 }}
-            ></Image>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.xButton}>
-            <Image
-              source={require("../../assets/images/xIcon.png")}
-              style={{ height: 27, width: 27 }}
-            ></Image>
-          </TouchableOpacity>
-        </View>
+        </View> */}
+
+        <CustomRatingBar />
+        <Text style={styles.ratingText}>
+          {defaultRating + "/" + maxRating.length}
+        </Text>
+
+        <TextInput
+          style={styles.textInput}
+          underlineColorAndroid="transparent"
+          onChangeText={(review) => setReview(review)}
+          defaultValue={"Enter Review"}
+        />
+
+        <TouchableOpacity
+          style={styles.opButton}
+          onPress={() => setModalOpen(true)}
+        >
+          <Text style={styles.whiteText}> Submit Review </Text>
+        </TouchableOpacity>
       </Card>
 
       <View
@@ -228,6 +278,56 @@ export default function App({ navigation }) {
           {arrivalTime}
         </Text>
       </View>
+
+      <Modal
+        visible={modalOpen}
+        animationType="slide"
+        transparent={true}
+        hasBackdrop={true}
+        backdropColor={"black"}
+        backdropOpacity={0.7}
+      >
+        <View
+          style={{ flex: 1, backgroundColor: "black", opacity: 0.7 }}
+        ></View>
+
+        <View
+          style={{
+            height: 110,
+            width: 250,
+            borderWidth: 2,
+            borderColor: colors.blue,
+            backgroundColor: colors.white,
+            alignSelf: "center",
+            justifyContent: "center",
+            alignItems: "center",
+            borderRadius: 16,
+            top: screen.height / 2 - 100,
+            position: "absolute",
+          }}
+        >
+          <Text style={styles.blackText}> Review Sent </Text>
+          <TouchableOpacity
+            style={{
+              width: 75,
+              height: 50,
+              borderWidth: 2,
+              borderColor: colors.white,
+              backgroundColor: colors.blue,
+              justifyContent: "center",
+              elevation: 5,
+              marginTop: 15,
+              borderTopLeftRadius: 12,
+              borderTopRightRadius: 12,
+              borderBottomRightRadius: 12,
+            }}
+            // onPress={() => setModalOpen(false)}
+            onPress={() => navigation.push("HomeCustomer")}
+          >
+            <Text style={styles.whiteText}>Ok</Text>
+          </TouchableOpacity>
+        </View>
+      </Modal>
     </View>
   );
 }
@@ -239,18 +339,70 @@ const styles = StyleSheet.create({
     // alignItems: "center",
     // justifyContent: "center",
   },
+  customRatingBarsStyle: {
+    justifyContent: "center",
+    flexDirection: "row",
+    marginTop: 5,
+    // backgroundColor: "grey",
+  },
+  opButton: {
+    width: 300,
+    height: 50,
+    backgroundColor: colors.blue,
+    borderWidth: 3,
+    borderColor: colors.white,
+    borderTopLeftRadius: 12,
+    borderBottomLeftRadius: 12,
+    borderBottomRightRadius: 12,
+    elevation: 5,
+    alignContent: "center",
+    justifyContent: "center",
+    marginTop: 15,
+    alignSelf: "center",
+  },
+  starImgStyle: {
+    height: 40,
+    width: 40,
+    resizeMode: "cover",
+    marginRight: 10,
+    tintColor: colors.blue,
+  },
+  ratingText: {
+    fontSize: 20,
+    textAlign: "center",
+    marginTop: 5,
+  },
   pickupContainer: {
     position: "absolute",
     bottom: 0,
     // marginLeft: 10,
     // marginRight: 10,
-    height: 250,
+    height: 460,
     backgroundColor: colors.white,
+    // backgroundColor: "red",
     width: screen.width,
     alignSelf: "center",
     borderTopRightRadius: 95,
     elevation: 10,
     paddingHorizontal: 15,
+  },
+  textInput: {
+    width: 305,
+    height: 130,
+    padding: 10,
+    // borderColor: colors.blue,
+    borderRadius: 16,
+    // borderWidth: 1,
+    // marginBottom: 20,
+    backgroundColor: colors.white,
+    // margin: 0.05,
+    elevation: 5,
+    alignSelf: "center",
+    marginTop: 15,
+    fontFamily: "Montserrat_400Regular",
+    fontSize: 15,
+    color: colors.grey,
+    alignItems: "flex-start",
   },
   outerBox: {
     height: 74,
@@ -321,7 +473,7 @@ const styles = StyleSheet.create({
   map: {
     width: screen.width,
     // height: screen.height,
-    height: screen.height + Constants.statusBarHeight - 180,
+    height: screen.height + Constants.statusBarHeight - 430,
     // height: screen.height + 50,
   },
   greyText: {
