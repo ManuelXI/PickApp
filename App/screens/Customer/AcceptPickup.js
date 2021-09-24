@@ -28,7 +28,7 @@ import { Colors } from "react-native/Libraries/NewAppScreen";
 
 export default function App({ navigation }) {
   let arrivalTime = "10 minutes";
-  let tripCost = 19;
+  let tripCost = 10;
 
   const [region, setRegion] = React.useState({
     // latitude: 37.78825,
@@ -223,7 +223,7 @@ export default function App({ navigation }) {
                       top: 14,
                     }}
                   >
-                    $
+                    GH₵
                   </Text>
                   <Text
                     style={{

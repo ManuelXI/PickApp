@@ -80,11 +80,9 @@ export default function App({ navigation }) {
             fontSize: 15,
           }}
         >
-          Paper is a thin sheet material produced by mechanically or chemically
-          processing cellulose fibres derived from wood, rags, grasses or other
-          vegetable sources in water, draining the water through fine mesh
-          leaving the fibre evenly distributed on the surface, followed by
-          pressing and drying.
+          Sachet bags are made from petroleum. Machines convert petroleum into a
+          thin sheet of plastic through a series of chemical reactions and
+          through the effect of heat.
         </Text>
         <TouchableOpacity
           style={styles.button}

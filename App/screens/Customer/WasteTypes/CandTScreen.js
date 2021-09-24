@@ -80,11 +80,10 @@ export default function App({ navigation }) {
             fontSize: 15,
           }}
         >
-          Paper is a thin sheet material produced by mechanically or chemically
-          processing cellulose fibres derived from wood, rags, grasses or other
-          vegetable sources in water, draining the water through fine mesh
-          leaving the fibre evenly distributed on the surface, followed by
-          pressing and drying.
+          Clothing and textiles are items worn on the body. Typically, clothing
+          is made of fabrics or textiles, but over time it has included garments
+          made from animal skin and other thin sheets of materials and natural
+          products found in the environment, put together.
         </Text>
         <TouchableOpacity
           style={styles.button}

@@ -80,11 +80,11 @@ export default function App({ navigation }) {
             fontSize: 15,
           }}
         >
-          Paper is a thin sheet material produced by mechanically or chemically
-          processing cellulose fibres derived from wood, rags, grasses or other
-          vegetable sources in water, draining the water through fine mesh
-          leaving the fibre evenly distributed on the surface, followed by
-          pressing and drying.
+          Construction and demolition materials are created during the process
+          of creating a new building or structure or when renovating or
+          demolishing an existing structure. These materials are usually heavy
+          materials used in large volumes in modern construction, such as
+          concrete, steel, wood, asphalt and gypsum.
         </Text>
         <TouchableOpacity
           style={styles.button}

@@ -80,11 +80,9 @@ export default function App({ navigation }) {
             fontSize: 15,
           }}
         >
-          Paper is a thin sheet material produced by mechanically or chemically
-          processing cellulose fibres derived from wood, rags, grasses or other
-          vegetable sources in water, draining the water through fine mesh
-          leaving the fibre evenly distributed on the surface, followed by
-          pressing and drying.
+          A ceramic is any of the various hard, brittle, heat-resistant and
+          corrosion-resistant materials made by shaping and then firing an
+          inorganic, nonmetallic material, such as clay, at a high temperature.
         </Text>
         <TouchableOpacity
           style={styles.button}

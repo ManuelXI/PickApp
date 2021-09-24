@@ -43,6 +43,12 @@ import EditAccount from "../screens/Customer/DrawerScreens/EditAccount";
 import PickupHistory from "../screens/Customer/DrawerScreens/PickupHistory";
 import Wallet from "../screens/Customer/DrawerScreens/Wallet";
 
+//Driver Side
+import SignUpDriver from "../screens/Driver/SignUpDriver";
+import VehicleType from "../screens/Driver/VehicleType";
+import DriverHome from "../screens/Driver/DriverHome";
+import PickupCard from "../screens/Driver/PickupCard";
+
 const MainStack = createStackNavigator();
 // const Drawer = createDrawerNavigator();
 
@@ -52,15 +58,16 @@ const MainStackScreen = () => (
     // initialRouteName="HomeCustomer"
     // initialRouteName="DesignStuff"
     // initialRouteName="PlasticSachetsScreen"
-    initialRouteName="HomeCustomer"
-    // initialRouteName="BinLevel"
-    // initialRouteName="LiquidWaste"
+    // initialRouteName="HomeCustomer"
+    // initialRouteName="DriverHome"
+    // initialRouteName="ArrivingScreen"
+    // initialRouteName="SignUpDriver"
     // initialRouteName="PickupHistory"
     // initialRouteName="DesignStuff"
     // initialRouteName="ElectricalDevicesScreen"
     // initialRouteName="FeedBackScreen"
     // initialRouteNames="SelectTimeSlot"
-    // initialRouteName="SearchScreen"
+    initialRouteName="AcceptPickup"
     // initialRouteName="AcceptPickup"
     // initialRouteName="Recyclable"
   >
@@ -116,6 +123,12 @@ const MainStackScreen = () => (
     <MainStack.Screen name="EditAccount" component={EditAccount} />
     <MainStack.Screen name="PickupHistory" component={PickupHistory} />
     <MainStack.Screen name="Wallet" component={Wallet} />
+
+    {/* Driver */}
+    <MainStack.Screen name="SignUpDriver" component={SignUpDriver} />
+    <MainStack.Screen name="VehicleType" component={VehicleType} />
+    <MainStack.Screen name="DriverHome" component={DriverHome} />
+    <MainStack.Screen name="PickupCard" component={PickupCard} />
   </MainStack.Navigator>
 );
 

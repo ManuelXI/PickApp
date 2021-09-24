@@ -10,10 +10,7 @@ import {
   TouchableOpacity,
   TextInput,
 } from "react-native";
-import colors from "../constants/colors";
-import { Icon, InlineIcon } from "@iconify/react";
-import arrowDown from "@iconify/icons-bi/arrow-down";
-// import firebase from "../database/firebase";
+import colors from "../../constants/colors";
 
 import {
   Montserrat_100Thin,
@@ -42,17 +39,6 @@ import { ScrollView } from "react-native-gesture-handler";
 const screen = Dimensions.get("window");
 
 export default ({ navigation }) => {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     fName: '',
-  //     lName: '',
-  //     email: '',
-  //     password: '',
-  //     isLoading: false
-  //   }
-  // }
-
   let [fontsLoaded, error] = useFonts({
     Montserrat_100Thin,
     Montserrat_100Thin_Italic,
@@ -84,7 +70,7 @@ export default ({ navigation }) => {
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
       <Image
-        source={require("../assets/images/pattern.png")}
+        source={require("../../assets/images/pattern.png")}
         style={styles.imageContainer}
       ></Image>
       <View style={styles.midsection}></View>
@@ -155,7 +141,7 @@ export default ({ navigation }) => {
 
           <TouchableOpacity
             style={styles.login}
-            onPress={() => navigation.push("HomeCustomer")}
+            onPress={() => navigation.push("DriverHome")}
           >
             <Text style={styles.loginText}> Sign Up </Text>
           </TouchableOpacity>
@@ -175,7 +161,7 @@ export default ({ navigation }) => {
           style={styles.arrow}
           onPress={() => navigation.goBack()}
         >
-          <Image source={require("../assets/images/back_arrow.png")} />
+          <Image source={require("../../assets/images/back_arrow.png")} />
         </TouchableOpacity>
       </View>
     </View>
@@ -254,7 +240,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.blue,
     alignContent: "center",
     justifyContent: "center",
-    borderWidth: 1,
+    borderWidth: 3,
     borderColor: colors.white,
     borderTopLeftRadius: 12,
     borderBottomLeftRadius: 12,

@@ -74,8 +74,7 @@ export default ({ navigation }) => {
       <View style={styles.midsection}>
         <Text style={styles.hellotext}>Welcome!</Text>
         <Text style={styles.middletext}>
-          Waste Management is important ssjfjk sdfhjjsjfshfh afnmf sbbsfb sfhsf
-          sjfjsfj afj afjjaf
+          We are here to help you effectively dispose off your waste!
         </Text>
       </View>
       <View style={styles.bottomsection}>

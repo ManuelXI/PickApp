@@ -94,7 +94,10 @@ export default ({ navigation }) => {
           <Text style={styles.loginText}> Customer </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.signup}>
+        <TouchableOpacity
+          style={styles.signup}
+          onPress={() => navigation.push("SignUpDriver")}
+        >
           <Text style={styles.signupText}> Driver </Text>
         </TouchableOpacity>
       </View>

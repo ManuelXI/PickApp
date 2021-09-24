@@ -80,11 +80,10 @@ export default function App({ navigation }) {
             fontSize: 15,
           }}
         >
-          Paper is a thin sheet material produced by mechanically or chemically
-          processing cellulose fibres derived from wood, rags, grasses or other
-          vegetable sources in water, draining the water through fine mesh
-          leaving the fibre evenly distributed on the surface, followed by
-          pressing and drying.
+          Mixed Waste can refer to any combination of waste types with different
+          properties. Typically commercial and municipal wastes are mixtures of
+          plastics, metals, glass, biodegradable waste including paper and
+          textiles along with other nondescript junk.
         </Text>
         <TouchableOpacity
           style={styles.button}

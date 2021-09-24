@@ -10,68 +10,29 @@ import {
   TouchableOpacity,
   TextInput,
 } from "react-native";
-import colors from "../constants/colors";
-import { Icon, InlineIcon } from "@iconify/react";
-import arrowDown from "@iconify/icons-bi/arrow-down";
-// import firebase from "../database/firebase";
+import colors from "../../constants/colors";
 
 import {
-  Montserrat_100Thin,
-  Montserrat_100Thin_Italic,
-  Montserrat_200ExtraLight,
-  Montserrat_200ExtraLight_Italic,
-  Montserrat_300Light,
-  Montserrat_300Light_Italic,
   Montserrat_400Regular,
-  Montserrat_400Regular_Italic,
   Montserrat_500Medium,
-  Montserrat_500Medium_Italic,
-  Montserrat_600SemiBold,
-  Montserrat_600SemiBold_Italic,
   Montserrat_700Bold,
-  Montserrat_700Bold_Italic,
-  Montserrat_800ExtraBold,
-  Montserrat_800ExtraBold_Italic,
-  Montserrat_900Black,
-  Montserrat_900Black_Italic,
 } from "@expo-google-fonts/montserrat";
 import { useFonts } from "@expo-google-fonts/montserrat";
 import AppLoading from "expo-app-loading";
 import { ScrollView } from "react-native-gesture-handler";
+import { Card } from "react-native-shadow-cards";
 
 const screen = Dimensions.get("window");
 
-export default ({ navigation }) => {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     fName: '',
-  //     lName: '',
-  //     email: '',
-  //     password: '',
-  //     isLoading: false
-  //   }
-  // }
+let box_height1 = 180;
+let box_height2 = 200;
+let box_width = screen.width / 2 - 30;
 
+export default ({ navigation }) => {
   let [fontsLoaded, error] = useFonts({
-    Montserrat_100Thin,
-    Montserrat_100Thin_Italic,
-    Montserrat_200ExtraLight,
-    Montserrat_200ExtraLight_Italic,
-    Montserrat_300Light,
-    Montserrat_300Light_Italic,
     Montserrat_400Regular,
-    Montserrat_400Regular_Italic,
     Montserrat_500Medium,
-    Montserrat_500Medium_Italic,
-    Montserrat_600SemiBold,
-    Montserrat_600SemiBold_Italic,
     Montserrat_700Bold,
-    Montserrat_700Bold_Italic,
-    Montserrat_800ExtraBold,
-    Montserrat_800ExtraBold_Italic,
-    Montserrat_900Black,
-    Montserrat_900Black_Italic,
   });
 
   if (!fontsLoaded) {
@@ -82,9 +43,9 @@ export default ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="light-content" />
+      <StatusBar barStyle="light" />
       <Image
-        source={require("../assets/images/pattern.png")}
+        source={require("../../assets/images/pattern.png")}
         style={styles.imageContainer}
       ></Image>
       <View style={styles.midsection}></View>
@@ -96,68 +57,26 @@ export default ({ navigation }) => {
       </View>
 
       <View style={styles.whitesection}>
+        <Text style={styles.blackText}> Select Vehicle Type </Text>
+
         <ScrollView showsVerticalScrollIndicator={false}>
-          <View style={styles.inputBoxSurround}>
-            <View style={styles.inputBox}>
-              <Text style={styles.inputHeader}> First Name </Text>
-              <TextInput
-                style={styles.input}
-                underlineColorAndroid="transparent"
-                //   onChangeText={email => setEmail(email)}
-              />
-            </View>
-          </View>
-
-          <View style={styles.inputBoxSurround}>
-            <View style={styles.inputBox}>
-              <Text style={styles.inputHeader}> Last Name </Text>
-              <TextInput
-                style={styles.input}
-                underlineColorAndroid="transparent"
-                // onChangeText={email => setEmail(email)}
-              />
-            </View>
-          </View>
-
-          <View style={styles.inputBoxSurround}>
-            <View style={styles.inputBox}>
-              <Text style={styles.inputHeader}> Email </Text>
-              <TextInput
-                style={styles.input}
-                underlineColorAndroid="transparent"
-                //   onChangeText={email => setEmail(email)}
-              />
-            </View>
-          </View>
-
-          <View style={styles.inputBoxSurround}>
-            <View style={styles.inputBox}>
-              <Text style={styles.inputHeader}> Password </Text>
-              <TextInput
-                style={styles.input}
-                underlineColorAndroid="transparent"
-                //   onChangeText={email => setEmail(email)}
-                secureTextEntry={true}
-              />
-            </View>
-          </View>
-          <View style={styles.inputBoxSurround}>
-            <View style={styles.inputBox}>
-              <Text style={styles.inputHeader}> Confirm Password </Text>
-              <TextInput
-                style={styles.input}
-                underlineColorAndroid="transparent"
-                //   onChangeText={email => setEmail(email)}
-                secureTextEntry={true}
-              />
-            </View>
-          </View>
+          <Card style={styles.card1}>
+            <TouchableOpacity
+              onPress={() => navigation.push("MixedWasteScreen")}
+            >
+              <Image
+                source={require("../../assets/images/binbackground.jpeg")}
+                style={styles.imageContainer}
+              ></Image>
+              <Text style={styles.text}> Mixed Waste </Text>
+            </TouchableOpacity>
+          </Card>
 
           <TouchableOpacity
             style={styles.login}
             onPress={() => navigation.push("HomeCustomer")}
           >
-            <Text style={styles.loginText}> Sign Up </Text>
+            <Text style={styles.loginText}> Next </Text>
           </TouchableOpacity>
 
           <View style={styles.bottom}>
@@ -175,7 +94,7 @@ export default ({ navigation }) => {
           style={styles.arrow}
           onPress={() => navigation.goBack()}
         >
-          <Image source={require("../assets/images/back_arrow.png")} />
+          <Image source={require("../../assets/images/back_arrow.png")} />
         </TouchableOpacity>
       </View>
     </View>
@@ -196,6 +115,20 @@ const styles = StyleSheet.create({
   midsection: {
     backgroundColor: colors.blue,
     height: "30%",
+  },
+  card1: {
+    height: box_height1,
+    width: box_width,
+    borderRadius: 15,
+    marginRight: 10,
+    marginLeft: 20,
+    marginTop: 10,
+    elevation: 10,
+  },
+  imageContainer: {
+    height: box_height1,
+    width: box_width,
+    borderRadius: 15,
   },
   imageContainer1: {
     // top: 0,
@@ -254,7 +187,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.blue,
     alignContent: "center",
     justifyContent: "center",
-    borderWidth: 1,
+    borderWidth: 3,
     borderColor: colors.white,
     borderTopLeftRadius: 12,
     borderBottomLeftRadius: 12,
@@ -286,6 +219,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 40,
+    // marginTop: 20,
+    paddingTop: 20,
   },
   bottomtext1: {
     fontFamily: "Montserrat_400Regular",
@@ -315,10 +250,10 @@ const styles = StyleSheet.create({
     color: colors.black,
     paddingBottom: 5,
   },
-  input: {
+  blackText: {
     fontFamily: "Montserrat_400Regular",
     fontSize: 15,
-    color: colors.grey,
+    color: colors.black,
     // underlineColorAndroid: 'transparent'
   },
   inputBoxSurround: {
@@ -334,5 +269,15 @@ const styles = StyleSheet.create({
     // backgroundColor: 'red',
     alignItems: "center",
     justifyContent: "center",
+  },
+  text: {
+    position: "absolute",
+    bottom: 5,
+    right: 3,
+    color: colors.white,
+    fontFamily: "Montserrat_700Bold",
+    // fontWeight: "bold",
+    fontSize: 18,
+    textAlign: "right",
   },
 });

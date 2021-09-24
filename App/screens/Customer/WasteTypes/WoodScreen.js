@@ -80,11 +80,8 @@ export default function App({ navigation }) {
             fontSize: 15,
           }}
         >
-          Paper is a thin sheet material produced by mechanically or chemically
-          processing cellulose fibres derived from wood, rags, grasses or other
-          vegetable sources in water, draining the water through fine mesh
-          leaving the fibre evenly distributed on the surface, followed by
-          pressing and drying.
+          Wood is the hard fibrous material that forms the main substance of the
+          trunk or branches of a tree or shrub, used for fuel or timber.
         </Text>
         <TouchableOpacity
           style={styles.button}

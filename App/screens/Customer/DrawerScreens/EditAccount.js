@@ -42,7 +42,7 @@ export default function App({ navigation }) {
     <View style={styles.container}>
       <StatusBar style="light" />
       <Image
-        source={require("../../../assets/images/editAccountPic.jpg")}
+        source={require("../../../assets/images/pfpImage.jpg")}
         style={styles.imageContainer}
       ></Image>
       <View style={styles.overlay} />

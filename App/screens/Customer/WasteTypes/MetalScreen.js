@@ -80,11 +80,9 @@ export default function App({ navigation }) {
             fontSize: 15,
           }}
         >
-          Paper is a thin sheet material produced by mechanically or chemically
-          processing cellulose fibres derived from wood, rags, grasses or other
-          vegetable sources in water, draining the water through fine mesh
-          leaving the fibre evenly distributed on the surface, followed by
-          pressing and drying.
+          A metal is a material that, when freshly prepared, polished, or
+          fractured, shows a lustrous appearance, and conducts electricity and
+          heat relatively well. Metals are typically malleable or ductile
         </Text>
         <TouchableOpacity
           style={styles.button}

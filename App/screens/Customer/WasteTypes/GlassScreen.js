@@ -80,11 +80,11 @@ export default function App({ navigation }) {
             fontSize: 15,
           }}
         >
-          Paper is a thin sheet material produced by mechanically or chemically
-          processing cellulose fibres derived from wood, rags, grasses or other
-          vegetable sources in water, draining the water through fine mesh
-          leaving the fibre evenly distributed on the surface, followed by
-          pressing and drying.
+          Glass is a non-crystalline, often transparent amorphous solid, that
+          has widespread practical, technological, and decorative use in, for
+          example, window panes, tableware, and optics. Glass is most often
+          formed by rapid cooling (quenching) of the molten form; some glasses
+          such as volcanic glass are naturally occurring.
         </Text>
         <TouchableOpacity
           style={styles.button}

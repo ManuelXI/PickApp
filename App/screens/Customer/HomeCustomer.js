@@ -79,7 +79,7 @@ export default ({ navigation }) => {
       <StatusBar barStyle="light-content" />
 
       <View style={styles.headerContainer}>
-        <Text style={styles.headerText}> Hello, Zhuri... </Text>
+        <Text style={styles.headerText}> Hello, Mortey... </Text>
         <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
           <Image
             source={require("../../assets/images/list.png")}

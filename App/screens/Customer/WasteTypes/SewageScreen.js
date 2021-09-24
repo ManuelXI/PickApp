@@ -80,11 +80,11 @@ export default function App({ navigation }) {
             fontSize: 15,
           }}
         >
-          Paper is a thin sheet material produced by mechanically or chemically
-          processing cellulose fibres derived from wood, rags, grasses or other
-          vegetable sources in water, draining the water through fine mesh
-          leaving the fibre evenly distributed on the surface, followed by
-          pressing and drying.
+          Sewage (or domestic sewage, domestic wastewater, municipal wastewater)
+          is a type of wastewater that is produced by a community of people. It
+          is typically transported through a sewer system.[1]: 175  Sewage
+          consists of wastewater discharged from residences and from commercial,
+          institutional and public facilities that exist in the locality
         </Text>
         <TouchableOpacity
           style={styles.button}

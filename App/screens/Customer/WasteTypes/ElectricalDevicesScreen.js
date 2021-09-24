@@ -80,11 +80,14 @@ export default function App({ navigation }) {
             fontSize: 15,
           }}
         >
-          Paper is a thin sheet material produced by mechanically or chemically
-          processing cellulose fibres derived from wood, rags, grasses or other
-          vegetable sources in water, draining the water through fine mesh
-          leaving the fibre evenly distributed on the surface, followed by
-          pressing and drying.
+          Electric(al) devices are devices that functionally rely on electric
+          energy (AC or DC) to drive their core parts (electric motors,
+          transformers, lighting rechargeable batteries, control electronics).
+          They can be contrasted with traditional mechanical devices which rely
+          on different power sources like fuels or human physical strength.
+          Electronic devices are a specialized kind of electric device in which
+          the electric power is used predominantly for data processing instead
+          of generation of mechanical forces.
         </Text>
         <TouchableOpacity
           style={styles.button}

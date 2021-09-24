@@ -33,9 +33,11 @@ import {
 } from "@expo-google-fonts/montserrat";
 import { useFonts } from "@expo-google-fonts/montserrat";
 import AppLoading from "expo-app-loading";
+import react from "react";
 
 export default ({ navigation }) => {
-  const [waveHeight, setWaveHeight] = useState(0.4 * wH);
+  const [pf, setPf] = useState(0.51);
+  const [waveHeight, setWaveHeight] = useState(pf * wH);
 
   let [fontsLoaded, error] = useFonts({
     Montserrat_400Regular,
@@ -51,7 +53,13 @@ export default ({ navigation }) => {
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
 
-      <TouchableOpacity onPress={() => navigation.push("AcceptPickup")}>
+      <TouchableOpacity
+        // onPress={() => navigation.push("AcceptPickup")}
+        onPress={() => {
+          setPf(0.48);
+          setWaveHeight(pf * wH);
+        }}
+      >
         <View
           style={{
             //   backgroundColor: "red",
@@ -125,7 +133,7 @@ export default ({ navigation }) => {
               bottom: 10,
             }}
           >
-            40%
+            {pf * 100}%
           </Text>
           <Text
             style={{

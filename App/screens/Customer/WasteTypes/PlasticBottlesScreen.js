@@ -80,11 +80,12 @@ export default function App({ navigation }) {
             fontSize: 15,
           }}
         >
-          Paper is a thin sheet material produced by mechanically or chemically
-          processing cellulose fibres derived from wood, rags, grasses or other
-          vegetable sources in water, draining the water through fine mesh
-          leaving the fibre evenly distributed on the surface, followed by
-          pressing and drying.
+          A plastic bottle is a bottle constructed from high-density or low
+          density plastic. Plastic bottles are typically used to store liquids
+          such as water, soft drinks, motor oil, cooking oil, medicine, shampoo,
+          milk, and ink. The size ranges from very small bottles to large
+          carboys. Consumer blow molded containers often have integral handles
+          or are shaped to facilitate grasping.
         </Text>
         <TouchableOpacity
           style={styles.button}

@@ -80,11 +80,12 @@ export default function App({ navigation }) {
             fontSize: 15,
           }}
         >
-          Paper is a thin sheet material produced by mechanically or chemically
-          processing cellulose fibres derived from wood, rags, grasses or other
-          vegetable sources in water, draining the water through fine mesh
-          leaving the fibre evenly distributed on the surface, followed by
-          pressing and drying.
+          Green waste, also known as "biological waste", is any organic waste
+          that can be composted. It is most usually composed of refuse from
+          gardens such as grass clippings or leaves, and domestic or industrial
+          kitchen wastes. Such materials are rich in carbon and considered
+          "brown wastes," while green wastes contain high in concentrations of
+          nitrogen.
         </Text>
         <TouchableOpacity
           style={styles.button}
